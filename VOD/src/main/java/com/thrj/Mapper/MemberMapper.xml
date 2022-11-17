@@ -20,7 +20,7 @@
 			  , mb_type
 			   ) VALUES(
 			    #{mb_id}
-			  , password(#{mb_pw})
+			  , CONCAT('*', UPPER(SHA1(UNHEX(SHA1(#{mb_pw})))))
 			  , #{mb_name}
 			  , #{mb_genre}
 			  , #{mb_profile}
@@ -34,7 +34,7 @@
     <update id="updateMember" parameterType="com.thrj.Entity.Members">
 	  <![CDATA[
 		 UPDATE members
-		  SET mb_pw = password(#{mb_pw})
+		  SET mb_pw = CONCAT('*', UPPER(SHA1(UNHEX(SHA1(#{mb_pw})))))
 			, mb_genre = #{mb_genre}
 			, mb_profile  = #{mb_profile}
 		WHERE mb_id = #{mb_id}
@@ -54,7 +54,7 @@
 			SELECT MB_ID
 			FROM   members
 			WHERE  mb_id = #{mb_id}
-			AND    mb_pw = password(#{mb_pw})
+			AND    mb_pw = CONCAT('*', UPPER(SHA1(UNHEX(SHA1(#{mb_pw})))))
 		]]>
 	</select>
 	
