@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thrj.Mapper.MemberMapper">
+    
+    <!-- test -->
+   	<select id="idCheck" resultType="com.thrj.Entity.Members">
+	    select * from members where mb_id = #{mb_id}
+	</select>
+	
+   	<!-- 사용자등록 -->
+    <insert id="createUser" parameterType="com.thrj.Entity.Members">
+	  <![CDATA[
+		INSERT INTO members (
+				mb_id
+			  , mb_pw
+			  , mb_name
+			  , mb_genre
+			  , mb_profile
+			  , mb_joindate
+			  , mb_type
+			   ) VALUES(
+			    #{mb_id}
+			  , #{mb_pw}
+			  , #{mb_name}
+			  , #{mb_genre}
+			  , #{mb_profile}
+			  , DATE_FORMAT(SYSDATE(), '%Y-%m-%d %H:%i')
+			  , 'N'
+		 	)
+		]]>
+	</insert>
+	
+    <!-- 사용자수정 -->
+    <update id="updateUser" parameterType="com.thrj.Entity.Members">
+	  <![CDATA[
+		 UPDATE members
+		  SET mb_pw = #{mb_pw}
+			, mb_genre = #{mb_genre}
+			, mb_profile  = #{mb_profile}
+		WHERE mb_id = #{mb_id}
+		]]>
+	</update>
+	
+    <!-- 사용자등록 -->
+	 <delete id="deleteUser" parameterType="string">
+		<![CDATA[
+			DELETE FROM members WHERE mb_id = #{mb_id}
+		]]>
+	</delete>
+	
+	 <!-- 사용자로그인 -->
+	 <select id="logincheck" parameterType="com.thrj.Entity.Members" resultType="string">
+		<![CDATA[
+			SELECT EMAIL
+			FROM   members
+			WHERE  mb_id = #{mb_id}
+			AND    mb_pw = #{mb_pw}
+		]]>
+	</select>
+	
+</mapper>
