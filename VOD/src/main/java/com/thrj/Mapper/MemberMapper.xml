@@ -20,7 +20,7 @@
 			  , mb_type
 			   ) VALUES(
 			    #{mb_id}
-			  , #{mb_pw}
+			  , password(#{mb_pw})
 			  , #{mb_name}
 			  , #{mb_genre}
 			  , #{mb_profile}
@@ -51,10 +51,10 @@
 	 <!-- 사용자로그인 -->
 	 <select id="logincheck" parameterType="com.thrj.Entity.Members" resultType="string">
 		<![CDATA[
-			SELECT EMAIL
+			SELECT MB_ID
 			FROM   members
 			WHERE  mb_id = #{mb_id}
-			AND    mb_pw = #{mb_pw}
+			AND    mb_pw = password(#{mb_pw})
 		]]>
 	</select>
 	
