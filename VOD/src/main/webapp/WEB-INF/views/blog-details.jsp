@@ -33,50 +33,8 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="header__logo">
-                        <a href="index.do">
-                            <img src="resources/img/logo.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="header__nav">
-                        <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li><a href="index.do">Homepage</a></li>
-                                <li><a href="categories.do">Categories <span class="arrow_carrot-down"></span></a>
-                                    <ul class="dropdown">
-                                        <li><a href="categories.do">Categories</a></li>
-                                        <li><a href="animeDetails.do">Anime Details</a></li>
-                                        <li><a href="animeWatching.do">Anime Watching</a></li>
-                                        <li><a href="blogDetails.do">Blog Details</a></li>
-                                        <li><a href="signup.do">Sign Up</a></li>
-                                        <li><a href="login.do">Login</a></li>
-                                    </ul>
-                                </li>
-                                <li class="active"><a href="blog.do">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="header__right">
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="login.do"><span class="icon_profile"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
-    <!-- Header End -->
-
+   <!-- header -->
+	<%@ include file="./header.jsp"%>
     <!-- Blog Details Section Begin -->
     <section class="blog-details spad">
         <div class="container">
@@ -226,38 +184,8 @@
         </section>
         <!-- Blog Details Section End -->
 
-        <!-- Footer Section Begin -->
-        <footer class="footer">
-            <div class="page-up">
-                <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="footer__logo">
-                            <a href="index.do"><img src="resources/img/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="footer__nav">
-                            <ul>
-                                <li class="active"><a href="index.do">Homepage</a></li>
-                                <li><a href="categories.do">Categories</a></li>
-                                <li><a href="blog.do">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-
-                      </div>
-                  </div>
-              </div>
-          </footer>
-          <!-- Footer Section End -->
+     <!-- footer section -->
+		<%@ include file="./footer.jsp"%>
 
           <!-- Search model Begin -->
           <div class="search-model">
