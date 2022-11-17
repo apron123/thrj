@@ -133,7 +133,7 @@
                                 <div class="section-title">
                                     <h4>Ranking</h4>
                                 </div>
-                            </div>
+                            </div>c
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
                                     <a href="categories.do" class="primary-btn">View All <span class="arrow_right"></span></a>
@@ -150,7 +150,6 @@
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
-                                            <li>Active</li>
                                             <li>Movie</li>
                                         </ul>
                                         <h5><a href="animeDetails.do">The Seven Deadly Sins: Wrath of the Gods</a></h5>
@@ -162,7 +161,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-2.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -178,7 +177,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-3.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -210,7 +209,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/popular/popular-1.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -226,7 +225,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/popular/popular-2.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -242,7 +241,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/popular/popular-3.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -274,7 +273,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/recent/recent-1.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -290,7 +289,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/recent/recent-2.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -306,7 +305,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="resources/img/recent/recent-3.jpg">
                                         <div class="ep">18 / 18</div>
                                         <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 9141</div>
+                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -336,31 +335,31 @@
                                 <div class="product__sidebar__view__item set-bg mix day years"
                                 data-setbg="resources/img/sidebar/tv-1.jpg">
                                 <div class="ep">18 / ?</div>
-                                <div class="view"><!-- <i class="fa fa-star"></i> 9141 --></div>
+                                <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
                                 <h5><a href="animeDetails.do">Boruto: Naruto next generations</a></h5>
                             </div>
                             <div class="product__sidebar__view__item set-bg mix month week"
                             data-setbg="resources/img/sidebar/tv-2.jpg">
                             <div class="ep">18 / ?</div>
-                            <div class="view"><!-- <i class="fa fa-star"></i> 9141 --></div>
+                            <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
                             <h5><a href="animeDetails.do">The Seven Deadly Sins: Wrath of the Gods</a></h5>
                         </div>
                         <div class="product__sidebar__view__item set-bg mix week years"
                         data-setbg="resources/img/sidebar/tv-3.jpg">
                         <div class="ep">18 / ?</div>
-                        <div class="view"><!-- <i class="fa fa-star"></i> 9141 --></div>
+                        <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
                         <h5><a href="animeDetails.do">Sword art online alicization war of underworld</a></h5>
                     </div>
                     <div class="product__sidebar__view__item set-bg mix years month"
                     data-setbg="resources/img/sidebar/tv-4.jpg">
                     <div class="ep">18 / ?</div>
-                    <div class="view"><!-- <i class="fa fa-star"></i> 9141 --></div>
+                    <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
                     <h5><a href="animeDetails.do">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
                 </div>
                 <div class="product__sidebar__view__item set-bg mix day"
                 data-setbg="resources/img/sidebar/tv-5.jpg">
                 <div class="ep">18 / ?</div>
-                <div class="view"><!-- <i class="fa fa-star"></i> 9141 --></div>
+                <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
                 <h5><a href="animeDetails.do">Fate stay night unlimited blade works</a></h5>
             </div>
         </div>
