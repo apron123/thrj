@@ -8,7 +8,7 @@
 	</select>
 	
    	<!-- 사용자등록 -->
-    <insert id="createUser" parameterType="com.thrj.Entity.Members">
+    <insert id="createMember" parameterType="com.thrj.Entity.Members">
 	  <![CDATA[
 		INSERT INTO members (
 				mb_id
@@ -31,7 +31,7 @@
 	</insert>
 	
     <!-- 사용자수정 -->
-    <update id="updateUser" parameterType="com.thrj.Entity.Members">
+    <update id="updateMember" parameterType="com.thrj.Entity.Members">
 	  <![CDATA[
 		 UPDATE members
 		  SET mb_pw = #{mb_pw}
@@ -41,8 +41,8 @@
 		]]>
 	</update>
 	
-    <!-- 사용자등록 -->
-	 <delete id="deleteUser" parameterType="string">
+    <!-- 사용자삭제 -->
+	 <delete id="deleteMember" parameterType="string">
 		<![CDATA[
 			DELETE FROM members WHERE mb_id = #{mb_id}
 		]]>
