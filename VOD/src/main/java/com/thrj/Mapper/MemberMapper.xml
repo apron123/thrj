@@ -34,7 +34,7 @@
     <update id="updateMember" parameterType="com.thrj.Entity.Members">
 	  <![CDATA[
 		 UPDATE members
-		  SET mb_pw = #{mb_pw}
+		  SET mb_pw = password(#{mb_pw})
 			, mb_genre = #{mb_genre}
 			, mb_profile  = #{mb_profile}
 		WHERE mb_id = #{mb_id}
