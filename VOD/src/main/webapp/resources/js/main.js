@@ -58,8 +58,8 @@ window.addEventListener('load', () => {
                 	 	});
                 	 	
                 	 	$('.hero__items').each(function() { //배경이미지
-       						//var bg = $(this).data('setbg');
-       						 $(this).css('background-image', 'url(' + base_url+backdrop_path + ')');
+       						var bg = $(this).data('setbg');
+       						$(this).css('background-image', 'url(' + base_url+backdrop_path + ')');
     					});
     				 }
                  }).catch(error => console.log(error));
