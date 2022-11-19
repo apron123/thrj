@@ -30,13 +30,10 @@ window.addEventListener('load', () => {
             .then(res => res.json())
             .then(function(res){
             	
-            	var overview=res.results[0].overview;
-            	var backdrop_path=res.results[0].backdrop_path;
-            	var mId=res.results[0].id;
-            	var release_date=res.results[0].release_date;
-            	var original_title=res.results[0].original_title;
-            	var m_title=res.results[0].title;
-            	var genre_ids=res.results[0].genre_ids;
+            	var overview=res.results[0].overview; //줄거리
+            	var backdrop_path=res.results[0].backdrop_path; //dlalwl
+            	var m_title=res.results[0].title; //영화제목
+            	var genre_ids=res.results[0].genre_ids; //장르코드
             	
             	 fetch(searchUrl2)
                  .then(res2 => res2.json())
