@@ -38,37 +38,37 @@
     <section class="hero">
         <div class="container">
             <div class="hero__slider owl-carousel">
-                <div class="hero__items set-bg" data-setbg="resources/img/hero/hero-1.jpg">
+                <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                                <p>After 30 days of travel across the world...</p>
+                                <div class="label">Action</div>
+                                <h2>블랙 팬서: 와칸다 포에버</h2>
+                                <p>국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게...</p>
                                 <a href="animeDetails.do"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="hero__items set-bg" data-setbg="resources/img/hero/hero-1.jpg">
+                <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                                <p>After 30 days of travel across the world...</p>
+                                <div class="label">Action</div>
+                                <h2>블랙 팬서: 와칸다 포에버</h2>
+                                <p>국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게...</p>
                                 <a href="animeDetails.do"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="hero__items set-bg" data-setbg="resources/img/hero/hero-1.jpg">
+                <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                                <p>After 30 days of travel across the world...</p>
+                                 <div class="label">Action</div>
+                                <h2>블랙 팬서: 와칸다 포에버</h2>
+                                <p>국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게...</p>
                                 <a href="animeDetails.do"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
