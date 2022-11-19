@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
             .then(function(res){
             	
             	var overview=res.results[0].overview; //줄거리
-            	var backdrop_path=res.results[0].backdrop_path; //dlalwl
+            	var backdrop_path=res.results[0].backdrop_path; //이미지경로
             	var m_title=res.results[0].title; //영화제목
             	var genre_ids=res.results[0].genre_ids; //장르코드
             	
