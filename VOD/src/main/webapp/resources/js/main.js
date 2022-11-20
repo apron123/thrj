@@ -25,11 +25,11 @@ window.addEventListener('load', () => {
 			var movieList = boxOfficeResult['dailyBoxOfficeList'];
             var searchUrl = "https://api.themoviedb.org/3/search/movie?api_key="+api_key+"&language=ko-Kr&page=1&include_adult=false&query="+movieList[0].movieNm;
             var searchUrl2 = "https://api.themoviedb.org/3/genre/movie/list?api_key="+api_key+"&language=ko";
-       
+            
             fetch(searchUrl)
             .then(res => res.json())
             .then(function(res){
-            	
+        
             	var overview=res.results[0].overview; //줄거리
             	var backdrop_path=res.results[0].backdrop_path; //이미지경로
             	var m_title=res.results[0].title; //영화제목
