@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
                  .then(function(res2){
                 	 if(genre_ids[0]==res2.genres[0].id){
                 	 
-                	 	$('.movie_title').each(function() { //타이틀 로그
+                	 	$('.movie_title').each(function() { //타이틀명
                 	 		$(this).append("<h2 class='movie_title'>"+m_title+"</h2>");
                 	 	});
                 	 	
@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
                 	 		
                 	 	});
                 	 	
-                	 	$('.label').each(function() { //타이트 로그
+                	 	$('.label').each(function() { //장르 코드명
                 	 		$(this).append("<div class='label' id='boxofficeLabel'>"+res2.genres[0].name+"</div>");
                 	 	});
                 	 	
