@@ -21,5 +21,5 @@ public class Comments {
 	 		 private String mb_name; // 회원 이름 
 			 private String mb_profile; // 회원 프로필 
 			 private String cmt_date; // 작성날짜
-
+			 private String cmt_content; //게시물내용
 }

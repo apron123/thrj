@@ -2,9 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thrj.Mapper.MovieMapper">
     
-    <!-- test -->
-   	<select id="idCheck" resultType="com.thrj.Entity.Members">
-	    select * from members where mb_id = #{mb_id}
+    <!--번호로 넘겨받았을때 -->
+   	<select id="animeDetails" resultType="com.thrj.Entity.Movies" parameterType="int">
+   	   	    <![CDATA[
+	    		select * from movies where movie_seq = #{movie_seq}
+	    	]]>
 	</select>
 	
+    <!--List -->	
+   	<select id="movieList" resultType="com.thrj.Entity.Movies">
+	    select * from movies
+	</select>
+	
+   	<!-- 카운팅  -->
+	<update id="raiseLookupCount" parameterType="int">
+        update movies 
+        set movie_cnt=movie_cnt+1 
+        where movie_seq=#{movie_seq}
+	</update>
 </mapper>

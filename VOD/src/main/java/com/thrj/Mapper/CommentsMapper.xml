@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thrj.Mapper.CommentsMapper">
+    
+    	   <!--번호로 넘겨받았을때 -->
+   	<select id="CommentsCnt" resultType="int" parameterType="int">
+   	  <![CDATA[
+	       select count(cmt_seq) from movie_comments where movie_seq = #{movie_seq}
+	  ]]>
+	</select>
+	
+	<select id="getAllCommentsByPage" resultType="com.thrj.Entity.Comments" parameterType="int">
+	     <![CDATA[
+         select 
+	         	c.cmt_seq as cmt_seq, 
+	         	c.movie_seq as movie_seq, 
+	         	c.cmt_content as cmt_content, 
+	         	c.cmt_date as cmt_date,
+	         	m.mb_name as mb_name,
+	         	m.mb_id as mb_id,
+	         	m.mb_profile  as mb_profile
+           from movie_comments c,members m 
+          where movie_seq = #{movie_seq}
+        	and m.mb_id = c.mb_id 
+         ]]>
+    </select>
+    
+	
+	
+</mapper>

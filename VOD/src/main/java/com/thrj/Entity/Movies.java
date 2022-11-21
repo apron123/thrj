@@ -15,6 +15,7 @@ import lombok.ToString;
 public class Movies {
 	
 	@NonNull private int movie_seq;                    // 영화순번
+	@NonNull private int movie_cnt;                    // 영화조회수
 	@NonNull private String movie_title;               // 영화제목
 	@NonNull private String movie_content;             // 영화 줄거리
 	@NonNull private String movie_img;                 // 영화이미지
