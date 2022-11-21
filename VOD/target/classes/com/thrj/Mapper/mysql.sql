@@ -1,2 +1,4 @@
-select * from members
+select * from movies
+
+select movie_actor from movies
 
