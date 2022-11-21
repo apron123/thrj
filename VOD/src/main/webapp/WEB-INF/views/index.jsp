@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -39,7 +40,7 @@
         <div class="container">
             <div class="hero__slider owl-carousel">
             
-                <div class="hero__items set-bg" data-setbg="">
+                <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -52,7 +53,7 @@
                     </div>
                 </div>
                 
-                                <div class="hero__items set-bg" data-setbg="">
+                <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -66,7 +67,7 @@
                 </div>
                 
                 
-                                <div class="hero__items set-bg" data-setbg="">
+               <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -95,7 +96,7 @@
                                 <div class="section-title">
                                     <h4>Ranking</h4>
                                 </div>
-                            </div>c
+                            </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
                                     <a href="categories.do" class="primary-btn">View All <span class="arrow_right"></span></a>
@@ -103,53 +104,25 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-1.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-2.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Gintama Movie 2: Kanketsu-hen - Yorozuya yo Eien</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-3.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Shingeki no Kyojin Season 3 Part 2</a></h5>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        	<c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
+	                            <div class="col-lg-4 col-md-6 col-sm-6">
+	                                <div class="product__item">
+	                                    <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-1.jpg">
+	                                        <div class="ep">18 / 18</div>
+	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating}</div>
+	                                    </div>
+	                                    <div class="product__item__text">
+	                                        <ul>
+	                                            <li>Movie</li>
+	                                        </ul>
+	                                        <h5><a href="animeDetails.do?idx=${movies.movie_seq}">${movies.movie_title}</a></h5>
+	                                    </div>
+	                                </div>
+	                            </div>
+                            </c:forEach>
+                            
                         </div>
                     </div>
                     <div class="popular__product">
@@ -166,118 +139,23 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/popular/popular-1.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Sen to Chihiro no Kamikakushi</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/popular/popular-2.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Kizumonogatari III: Reiket su-hen</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/popular/popular-3.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Shirogane Tamashii hen Kouhan sen</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recent__product">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <div class="section-title">
-                                    <h4>추천 시리즈</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="categories.do" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/recent/recent-1.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Great Teacher Onizuka</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/recent/recent-2.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Fate/stay night Movie: Heaven's Feel - II. Lost</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="resources/img/recent/recent-3.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-star"></i> 3.5</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="animeDetails.do">Mushishi Zoku Shou: Suzu no Shizuku</a></h5>
-                                    </div>
-                                </div>
-                            </div>
+                            <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
+	                            <div class="col-lg-4 col-md-6 col-sm-6">
+	                                <div class="product__item">
+	                                    <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-1.jpg">
+	                                        <div class="ep">18 / 18</div>
+	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating}</div>
+	                                    </div>
+	                                    <div class="product__item__text">
+	                                        <ul>
+	                                            <li>Movie</li>
+	                                        </ul>
+	                                        <h5><a href="animeDetails.do?idx=${movies.movie_seq}">${movies.movie_title}</a></h5>
+	                                    </div>
+	                                </div>
+	                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

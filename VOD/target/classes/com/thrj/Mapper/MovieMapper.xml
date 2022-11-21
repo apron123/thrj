@@ -3,8 +3,8 @@
 <mapper namespace="com.thrj.Mapper.MovieMapper">
     
     <!-- test -->
-   	<select id="idCheck" resultType="com.thrj.Entity.Members">
-	    select * from members where mb_id = #{mb_id}
+   	<select id="movieList" resultType="com.thrj.Entity.Movies">
+	    select * from movies
 	</select>
 	
 </mapper>
