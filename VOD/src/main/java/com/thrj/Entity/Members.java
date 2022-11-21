@@ -19,8 +19,8 @@ public class Members {
 	 @NonNull private String mb_id; // 회원 아이디 
 	 @NonNull private String mb_pw; // 회원 비밀번호 
 	 @NonNull private String mb_name; // 회원 이름 
-	@NonNull private String mb_genre; // 회원 선호장르 
-    private String mb_profile; // 회원 프로필 
-    private Date mb_joindate;  // 회원 가입일자 
-    private String mb_type;   // 회원 유형 
+	 @NonNull private String mb_genre; // 회원 선호장르 
+              private String mb_profile; // 회원 프로필 
+              private Date mb_joindate;  // 회원 가입일자 
+              private String mb_type;   // 회원 유형 
 }
