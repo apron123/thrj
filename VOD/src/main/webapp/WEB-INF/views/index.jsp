@@ -105,13 +105,14 @@
                         </div>
                         <div class="row">
                         
-                        	<c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
+                        	<c:forEach items="${list}" var="movies" begin="0" end="2" step="1" varStatus="i">
 	                            <div class="col-lg-4 col-md-6 col-sm-6">
 	                                <div class="product__item">
-	                                    <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-1.jpg">
+	                                <%-- <div class="product__item__pic set-bg" data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.jpg"> --%>
+	                                    <div class="product__item__pic set-bg" data-setbg="resources/img/trending/trend-${i.count}.jpg">
 	                                        <div class="ep">18 / 18</div>
-	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating}</div>
+	                                        <div class="comment"><i class="fa fa-comments"></i> 11 </div>
+	                                        <div class="view"><i class="fa fa-star"></i>${movies.movie_rating}</div>
 	                                    </div>
 	                                    <div class="product__item__text">
 	                                        <ul>
