@@ -206,7 +206,7 @@
                                 <div class="anime__review__item__pic">
                                   	<c:choose>
 									     <c:when test = "${Comment.mb_profile ne '' and Comment.mb_profile ne null}">
-                                    		<img src="${memberProfile}/${Comment.mb_profile}" alt="${Comment.mb_name} ( ${Comment.mb_id} ) 님의사진">
+                                    		<img src="${userPhoto}/${Comment.mb_profile}" alt="${Comment.mb_name} ( ${Comment.mb_id} ) 님의사진">
                                     	</c:when>
                                     	<c:otherwise>
                                     		<img src="${memberProfile}/memberProfile.jpg" alt="${Comment.mb_name} ( ${Comment.mb_id} ) 님의사진">
