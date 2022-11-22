@@ -27,7 +27,7 @@
     
 	<insert id="createComments" parameterType="com.thrj.Entity.Comments">
         insert into movie_comments(movie_seq, cmt_content, cmt_date,mb_id)
-        values(#{movie_seq}, #{cmt_content}, now(), 0, #{mb_id})
+        values(#{movie_seq}, #{cmt_content}, now(), #{mb_id})
     </insert>
 	
 </mapper>
