@@ -47,7 +47,7 @@
                                 <div class="label" id="boxofficeLabel"></div>
                                 <h2 class="movie_title"></h2>
                                 <p class="movie_content"></p>
-                                <a href="animeDetails.do"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="animeDetails.do?movie_title=블랙 팬서: 와칸다 포에버"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                 <div class="label" id="boxofficeLabel"></div>
                                 <h2 class="movie_title"></h2>
                                 <p class="movie_content"></p>
-                                <a href="animeDetails.do"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="animeDetails.do?movie_title=블랙 팬서: 와칸다 포에버"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                                 <div class="label" id="boxofficeLabel"></div>
                                 <h2 class="movie_title"></h2>
                                 <p class="movie_content"></p>
-                                <a href="animeDetails.do"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="animeDetails.do?movie_title=블랙 팬서: 와칸다 포에버"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -146,6 +146,7 @@
 	                                    <div class="product__item__pic set-bg" data-setbg="resources/img/crawlingImage/129672.png">
 	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
 	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
+
 	                                    </div>
 	                                    <div class="product__item__text">
 	                                        <ul>
