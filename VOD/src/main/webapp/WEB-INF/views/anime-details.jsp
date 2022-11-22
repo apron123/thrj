@@ -239,7 +239,7 @@
                             <div class="anime__review__item">
                                 <div class="anime__review__item__pic">
                                     <%-- <img src="{memberProfile}/${Comment.mb_profile}.png" alt=""> --%>
-                                    <img src="${memberProfile}/memberProfile.jpg" alt="">
+                                    <img src="${memberProfile}/memberProfile.jpg" alt="사용자이미지">
                                 </div>
                                 <div class="anime__review__item__text">
                                		<h6>${Comment.mb_name}&nbsp;(&nbsp;${Comment.mb_id}&nbsp;)<span>&nbsp;&nbsp;&nbsp;${Comment.cmt_date}</span></h6>
@@ -252,9 +252,13 @@
                             <div class="section-title">
                                 <h5>Your Comment</h5>
                             </div>
-                            <form action="#">
-                                <textarea placeholder="Your Comment"></textarea>
-                                <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                            <form  action="CommentWrite.do" method="post" >
+                            	<input type="text" name="mb_id" value="${sessionScope.mb_id}">
+                            	<input type="text" name="movie_seq" value="${movie.movie_seq}">
+                                <textarea placeholder="Your Comment" name="cmt_content"></textarea>
+                                <c:if test="${sessionScope.mb_id != null}">
+                                	<button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                                </c:if>
                             </form>
                         </div>
                     </div>
@@ -297,7 +301,7 @@
             <div class="h-100 d-flex align-items-center justify-content-center">
                 <div class="search-close-switch"><i class="icon_close"></i></div>
                 <form class="search-model-form">
-                    <input type="text" id="search-input" placeholder="Search here......">
+                    <input type="text" id="search-input" placeholder="Search here.....">
                 </form>
             </div>
         </div>
