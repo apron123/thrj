@@ -54,11 +54,11 @@ window.addEventListener('load', () => {
                 	 	$('.label').each(function() { //장르 코드명
                 	 		$(this).append("<div class='label'>"+res2.genres[0].name+"</div>");
                 	 	});
-                	 	
+                	 	/*
                 	 	$('.hero__items').each(function() { //배경이미지
        						var bg = $(this).data('setbg');
        						$(this).css('background-image', 'url(' + base_url+backdrop_path + ')');
-    					});
+    					});*/
     							
     				 }
                  }).catch(error => console.log(error));

@@ -80,23 +80,21 @@
                         </div>
                         <div class="row">
                         
-                        	<c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
-	                            <div class="col-lg-4 col-md-6 col-sm-6">
-	                                <div class="product__item">
-	                                    <div class="product__item__pic set-bg" src="resources/img/crawlingImage/${movies.movie_img}.png">
-	                                    	<%-- <img alt="freshmeat" src="./img/<%= list.get(i).getItemImg1()%>"> --%>
-	                                        <!-- <div class="ep">18 / 18</div> -->
-	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
-	                                    </div>
-	                                    <div class="product__item__text">
-	                                        <ul>
-	                                            <li>Movie</li>
-	                                        </ul>
-	                                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
-	                                    </div>
-	                                </div>
-	                            </div>
+                        <c:forEach items="${list_1}" var="movies" varStatus="i" begin="3" end="5" step="1">
+                               <div class="col-lg-4 col-md-6 col-sm-6">
+                                   <div class="product__item">
+                                      <div class="product__item__pic set-bg" data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png">
+                                          <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                          <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
+                                       </div>
+                                       <div class="product__item__text">
+                                           <ul>
+                                               <li>Movie</li>
+                                           </ul>
+                                           <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
+                                       </div>
+                                   </div>
+                               </div>
                             </c:forEach>
                             
                         </div>
@@ -115,22 +113,21 @@
                             </div>
                         </div>
                         <div class="row">
-                            <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
-	                            <div class="col-lg-4 col-md-6 col-sm-6">
-	                                <div class="product__item">
-	                                    <div class="product__item__pic set-bg" data-setbg="resources/img/crawlingImage/129672.png">
-	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
-
-	                                    </div>
-	                                    <div class="product__item__text">
-	                                        <ul>
-	                                            <li>Movie</li>
-	                                        </ul>
-	                                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
-	                                    </div>
-	                                </div>
-	                            </div>
+                    <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
+                               <div class="col-lg-4 col-md-6 col-sm-6">
+                                   <div class="product__item">
+                                       <div class="product__item__pic set-bg" data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png">
+                                           <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                           <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
+                                       </div>
+                                       <div class="product__item__text">
+                                           <ul>
+                                               <li>Movie</li>
+                                           </ul>
+                                           <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
+                                       </div>
+                                   </div>
+                               </div>
                             </c:forEach>
                         </div>
                     </div>
@@ -139,46 +136,16 @@
                     <div class="product__sidebar">
                         <div class="product__sidebar__view">
                             <div class="section-title">
-                                <h5>시청목록</h5>
-                            </div>
-                           <!--  <ul class="filter__controls">
-                                <li class="active" data-filter="*">Day</li>
-                                <li data-filter=".week">Week</li>
-                                <li data-filter=".month">Month</li>
-                                <li data-filter=".years">Years</li>
-                            </ul> -->
-                            <div class="filter__gallery">
-                                <div class="product__sidebar__view__item set-bg mix day years"
-                                data-setbg="resources/img/sidebar/tv-1.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
-                                <h5><a href="animeDetails.do">Boruto: Naruto next generations</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix month week"
-                            data-setbg="resources/img/sidebar/tv-2.jpg">
-                            <div class="ep">18 / ?</div>
-                            <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
-                            <h5><a href="animeDetails.do">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                        </div>
-                        <div class="product__sidebar__view__item set-bg mix week years"
-                        data-setbg="resources/img/sidebar/tv-3.jpg">
-                        <div class="ep">18 / ?</div>
-                        <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
-                        <h5><a href="animeDetails.do">Sword art online alicization war of underworld</a></h5>
-                    </div>
-                    <div class="product__sidebar__view__item set-bg mix years month"
-                    data-setbg="resources/img/sidebar/tv-4.jpg">
-                    <div class="ep">18 / ?</div>
-                    <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
-                    <h5><a href="animeDetails.do">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
-                </div>
-                <div class="product__sidebar__view__item set-bg mix day"
-                data-setbg="resources/img/sidebar/tv-5.jpg">
-                <div class="ep">18 / ?</div>
-                <div class="view"><!-- <i class="fa fa-star"></i> 3.5 --></div>
-                <h5><a href="animeDetails.do">Fate stay night unlimited blade works</a></h5>
-            </div>
-        </div>
+                                <h5>시청목록</h5></div>
+                      <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="4" step="1">
+                        <div class="filter__gallery">
+                                   <div class="product__sidebar__view__item set-bg"
+                                   data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png">
+                                   <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
+                                   <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
+                                  </div>
+                               </div>
+                            </c:forEach>
     </div>
 </div>
 </div>
