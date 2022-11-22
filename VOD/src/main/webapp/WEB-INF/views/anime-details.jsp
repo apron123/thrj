@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var ="context"><%=request.getContextPath()%></c:set>
 <c:set var ="crawlingImage"><%="http://gjaischool-b.ddns.net:8086/crawlingImage"%></c:set>
 <c:set var ="memberProfile"><%="http://gjaischool-b.ddns.net:8086/memberProfile"%></c:set>
+<c:set var ="userPhoto"><%="resources/memberPhoto"%></c:set>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -60,7 +64,7 @@
             <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="${crawlingImage}/${movie.movie_img}">
+                        <div class="anime__details__pic set-bg" data-setbg="${crawlingImage}/${movie.movie_img}.png">
                             <div class="comment"><i class="fa fa-comments"></i>&nbsp;${CommentsCnt}</div>
                             <div class="view"><i class="fa fa-eye"></i>&nbsp;${movie.movie_cnt}</div>
                             
@@ -126,13 +130,13 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <ul>
-                                            <li><span>영화 유형 :</span> ${movie.movie_type}&nbsp;&nbsp;개봉</li>
+                                            <li><span>영화 유형 :</span> ${movie.movie_type}</li>
                                             <li><span>영화감독:</span>${movie.movie_director}</li>
-                                            <li><span>영화 개봉날짜:</span> ${movie.movie_open_date}</li>
+                                            <li><span>영화 개봉날짜:</span> ${fn:substring(movie.movie_open_date,0,10)}&nbsp;&nbsp;개봉</li>
                                             <li><span>영화 러닝타임:</span>${movie.movie_runtime}</li>
                                             <li><span>영화 출연배우:</span>${movie.movie_actor}</li>
                                             <li><span>영화 제작 국가:</span>${movie.movie_country}</li>
-                                            <li><span>영화 등급:</span>${movie.movie_age}</li>
+                                            <%-- <li><span>영화 등급:</span>${movie.movie_age}</li> --%>
                                             <li><span>영화 평점:
                                             <div class="rating">
                                       <c:choose>
@@ -200,8 +204,14 @@
                            <c:forEach items="${CommentList}" var="Comment"> 
                             <div class="anime__review__item">
                                 <div class="anime__review__item__pic">
-                                    <%-- <img src="{memberProfile}/${Comment.mb_profile}.png" alt=""> --%>
-                                    <img src="${memberProfile}/memberProfile.jpg" alt="사용자이미지">
+                                  	<c:choose>
+									     <c:when test = "${Comment.mb_profile ne '' and Comment.mb_profile ne null}">
+                                    		<img src="${memberProfile}/${Comment.mb_profile}" alt="${Comment.mb_name} ( ${Comment.mb_id} ) 님의사진">
+                                    	</c:when>
+                                    	<c:otherwise>
+                                    		<img src="${memberProfile}/memberProfile.jpg" alt="${Comment.mb_name} ( ${Comment.mb_id} ) 님의사진">
+                                    	</c:otherwise>
+                                    </c:choose>
                                 </div>
                                 <div class="anime__review__item__text">
                                		<h6>${Comment.mb_name}&nbsp;(&nbsp;${Comment.mb_id}&nbsp;)<span>&nbsp;&nbsp;&nbsp;${Comment.cmt_date}</span></h6>
