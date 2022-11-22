@@ -33,6 +33,9 @@ public class MovieController {
 	public String index(Model model) {
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
+		
+		List<Movies> list_1 = mapper.bannerList();
+	      model.addAttribute("list_1",list_1);
 		return "index";
 	}
 	

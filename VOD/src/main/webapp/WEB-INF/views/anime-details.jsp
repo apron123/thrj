@@ -63,6 +63,7 @@
                         <div class="anime__details__pic set-bg" data-setbg="${crawlingImage}/${movie.movie_img}">
                             <div class="comment"><i class="fa fa-comments"></i>&nbsp;${CommentsCnt}</div>
                             <div class="view"><i class="fa fa-eye"></i>&nbsp;${movie.movie_cnt}</div>
+                            
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -73,121 +74,37 @@
                             <div class="anime__details__rating">
                                 <div class="rating">
                                       <c:choose>
-         								<c:when test = "${movie.movie_rating == 10}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
+									     <c:when test = "${movie.movie_rating/2 >= 5}">
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									     </c:when>
-									     <c:when test = "${movie.movie_rating == 9}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
+									     <c:when test = "${movie.movie_rating/2 >= 4}">
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
+									         
 									     </c:when>
-         								<c:when test = "${movie.movie_rating == 8}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
+									     <c:when test = "${movie.movie_rating/2 >= 3}">
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									     </c:when>
-									     <c:when test = "${movie.movie_rating == 7}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
+									     <c:when test = "${movie.movie_rating/2 >= 2}">
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									     </c:when>
-									     <c:when test = "${movie.movie_rating == 6}">
+									     <c:when test = "${movie.movie_rating/2 >= 1}">
 									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating == 5}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating == 4}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating == 3}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating == 2}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating == 1}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
@@ -199,15 +116,10 @@
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
 									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
          								</c:otherwise>
                                       </c:choose>
                                 </div>
-                                <span>${movie.movie_rating} Votes</span>
+                                <span>${movie.movie_participate} Votes</span>
                             </div>
                             <p>${movie.movie_content}</p>
                             <div class="anime__details__widget">
@@ -221,6 +133,56 @@
                                             <li><span>영화 출연배우:</span>${movie.movie_actor}</li>
                                             <li><span>영화 제작 국가:</span>${movie.movie_country}</li>
                                             <li><span>영화 등급:</span>${movie.movie_age}</li>
+                                            <li><span>영화 평점:
+                                            <div class="rating">
+                                      <c:choose>
+									     <c:when test = "${movie.movie_rating/2 >= 5}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating/2 >= 4}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									         
+									     </c:when>
+									     <c:when test = "${movie.movie_rating/2 >= 3}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating/2 >= 2}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating/2 >= 1}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+         								<c:otherwise>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+         								</c:otherwise>
+                                      </c:choose>
+                                </div>
+                                <span>${movie.movie_participate} Votes</span>
+                                </span></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -28,5 +28,7 @@ public class Movies {
 	@NonNull private String movie_director;            // 영화감독
 	private String movie_cnt;                          // 페이지 관람수
 	private String movie_age;                          // 영화 시청연령
+	private int movie_participate;                     // 별점 참여자수
+	
 	
 }

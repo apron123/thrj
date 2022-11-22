@@ -16,7 +16,16 @@
                             <ul>
                                 <li class="active"><a href="index.do">Home</a></li>
                                 <li><a href="categories.do">영화 </a></li>
-                                <li><a href="#">TV Series</a></li>
+                                   <li><a href="#">장르 <span class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">액션</a></li>
+                                        <li><a href="#">애니메이션</a></li>
+                                        <li><a href="#">코미디</a></li>
+                                        <li><a href="#">로맨스</a></li>
+                                        <li><a href="#">스릴러</a></li>
+                                        <li><a href="#">판타지</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="#">랭킹</a></li>
                                 <li><a href="#">상영예정작</a></li>
                             </ul>

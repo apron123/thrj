@@ -40,45 +40,20 @@
         <div class="container">
             <div class="hero__slider owl-carousel">
             
-                <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
+               <c:forEach items="${list_1}" var="movies" varStatus="i" begin="0" end="2" step="1">
+               <div class="hero__items set-bg" data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png"">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label" id="boxofficeLabel"></div>
-                                <h2 class="movie_title"></h2>
-                                <p class="movie_content"></p>
-                                <a href="animeDetails.do?movie_title=블랙 팬서: 와칸다 포에버"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
+                                <div class="label">${movies.movie_type}</div>
+                                <h2>${movies.movie_title}</h2>
+                                <p></p>
+                                <a href="animeDetails.do?movie_seq=${movies.movie_seq}"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <div class="label" id="boxofficeLabel"></div>
-                                <h2 class="movie_title"></h2>
-                                <p class="movie_content"></p>
-                                <a href="animeDetails.do?movie_title=블랙 팬서: 와칸다 포에버"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-               <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500//yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <div class="label" id="boxofficeLabel"></div>
-                                <h2 class="movie_title"></h2>
-                                <p class="movie_content"></p>
-                                <a href="animeDetails.do?movie_title=블랙 팬서: 와칸다 포에버"><span>영화 상세</span> <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+             </c:forEach>
                 
             </div>
         </div>
@@ -118,7 +93,7 @@
 	                                        <ul>
 	                                            <li>Movie</li>
 	                                        </ul>
-	                                        <h5><a href="animeDetails.do?idx=${movies.movie_seq}">${movies.movie_title}</a></h5>
+	                                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -152,7 +127,7 @@
 	                                        <ul>
 	                                            <li>Movie</li>
 	                                        </ul>
-	                                        <h5><a href="animeDetails.do?idx=${movies.movie_seq}">${movies.movie_title}</a></h5>
+	                                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
 	                                    </div>
 	                                </div>
 	                            </div>

@@ -14,10 +14,16 @@
 	    select * from movies
 	</select>
 	
+   	<!-- 배너 -->
+   	<select id="bannerList" resultType="com.thrj.Entity.Movies">
+       select * from movies order by movie_cnt desc
+   </select>
+	
    	<!-- 카운팅  -->
 	<update id="raiseLookupCount" parameterType="int">
         update movies 
         set movie_cnt=movie_cnt+1 
         where movie_seq=#{movie_seq}
 	</update>
+	
 </mapper>
