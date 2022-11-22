@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var ="imgUrl"><%="http://gjaischool-b.ddns.net:8086/crawlingImage"%></c:set>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -41,7 +42,7 @@
             <div class="hero__slider owl-carousel">
             
                <c:forEach items="${list_1}" var="movies" varStatus="i" begin="0" end="2" step="1">
-               <div class="hero__items set-bg" data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png"">
+               <div class="hero__items set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png"">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -83,7 +84,7 @@
                         <c:forEach items="${list_1}" var="movies" varStatus="i" begin="3" end="5" step="1">
                                <div class="col-lg-4 col-md-6 col-sm-6">
                                    <div class="product__item">
-                                      <div class="product__item__pic set-bg" data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png">
+                                      <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
                                           <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                           <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
                                        </div>
@@ -116,7 +117,7 @@
                     <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
                                <div class="col-lg-4 col-md-6 col-sm-6">
                                    <div class="product__item">
-                                       <div class="product__item__pic set-bg" data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png">
+                                       <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
                                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                            <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
                                        </div>
@@ -140,7 +141,7 @@
                       <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="4" step="1">
                         <div class="filter__gallery">
                                    <div class="product__sidebar__view__item set-bg"
-                                   data-setbg="http://gjaischool-b.ddns.net:8086/crawlingImage/${movies.movie_img}.png">
+                                   data-setbg="${imgUrl}/${movies.movie_img}.png">
                                    <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
                                    <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
                                   </div>
