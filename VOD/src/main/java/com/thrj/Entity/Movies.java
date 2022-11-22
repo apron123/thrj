@@ -1,4 +1,3 @@
-
 package com.thrj.Entity;
 
 import lombok.AllArgsConstructor;
