@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.thrj.Entity.Members;
 import com.thrj.Entity.Movies;
@@ -55,14 +53,6 @@ public class MovieController {
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
 		return "categories";
-	}
-	
-	//	Test
-	@GetMapping("/test.do")
-	public String test(Model model) {
-		Members vo = mapper.idCheck("mb_id 001");
-		model.addAttribute("vo", vo);
-		return "test";
 	}
 	
 }

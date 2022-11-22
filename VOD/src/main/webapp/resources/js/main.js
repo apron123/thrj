@@ -16,6 +16,7 @@ var yesterday = ( d => new Date(d.setDate(d.getDate() -1)))(new Date); //어제 
 yesterday = yesterday.getFullYear()+""+(yesterday.getMonth()+1)+""+ yesterday.getDate();
 var date = yesterday; //어제 날짜를 넣어 준다.
 var apiUrl = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key="+key+"&targetDt="+date;
+var m_title="";
 window.addEventListener('load', () => {
     const xhr = new XMLHttpRequest(); //리퀘스트 객체를 만든다.
     xhr.onreadystatechange = function(){
@@ -32,7 +33,7 @@ window.addEventListener('load', () => {
         
             	var overview=res.results[0].overview; //줄거리
             	var backdrop_path=res.results[0].backdrop_path; //이미지경로
-            	var m_title=res.results[0].title; //영화제목
+            	m_title=res.results[0].title; //영화제목
             	var genre_ids=res.results[0].genre_ids; //장르코드
             	
             	 fetch(searchUrl2)
@@ -51,13 +52,14 @@ window.addEventListener('load', () => {
                 	 	});
                 	 	
                 	 	$('.label').each(function() { //장르 코드명
-                	 		$(this).append("<div class='label' id='boxofficeLabel'>"+res2.genres[0].name+"</div>");
+                	 		$(this).append("<div class='label'>"+res2.genres[0].name+"</div>");
                 	 	});
                 	 	
                 	 	$('.hero__items').each(function() { //배경이미지
        						var bg = $(this).data('setbg');
        						$(this).css('background-image', 'url(' + base_url+backdrop_path + ')');
     					});
+    							
     				 }
                  }).catch(error => console.log(error));
             }).catch(error => console.log(error));
