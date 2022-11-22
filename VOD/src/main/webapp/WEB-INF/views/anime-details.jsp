@@ -253,8 +253,8 @@
                                 <h5>Your Comment</h5>
                             </div>
                             <form  action="CommentWrite.do" method="post" >
-                            	<input type="text" name="mb_id" value="${sessionScope.mb_id}">
-                            	<input type="text" name="movie_seq" value="${movie.movie_seq}">
+                            	<input type="hint" name="mb_id" value="${sessionScope.mb_id}">
+                            	<input type="hint" name="movie_seq" value="${movie.movie_seq}">
                                 <textarea placeholder="Your Comment" name="cmt_content"></textarea>
                                 <c:if test="${sessionScope.mb_id != null}">
                                 	<button type="submit"><i class="fa fa-location-arrow"></i> Review</button>

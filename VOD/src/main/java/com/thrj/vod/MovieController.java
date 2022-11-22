@@ -18,7 +18,7 @@ import com.thrj.Entity.Comments;
 import com.thrj.Entity.Movies;
 import com.thrj.Mapper.CommentsMapper;
 import com.thrj.Mapper.MovieMapper;
-import com.thrj.Util.PageLink;
+
 
 @Controller
 public class MovieController {
@@ -37,7 +37,7 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value="/animeDetails.do", method=RequestMethod.GET)
-	public ModelAndView animeDetails(HttpServletRequest request,@RequestParam(value = "page", required = false, defaultValue = "1") Integer currPage) {
+	public ModelAndView animeDetails(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		
 		int movieSeq = Integer.parseInt(request.getParameter("movie_seq")) ;
@@ -45,11 +45,9 @@ public class MovieController {
 		mapper.raiseLookupCount(movieSeq); //영화 게시물 view수
 		Movies movie=mapper.animeDetails(movieSeq); //내용 시나리오
 		int Comments_cnt=cmt_mapper.CommentsCnt(movieSeq); //댓글수
-	    
-		PageLink pageLink = new PageLink(currPage, Comments_cnt); //댓글 리스트
-		List<Comments> list = cmt_mapper.getAllCommentsByPage(movieSeq);
-		mv.addObject("CommentList",list);
+	    List<Comments> list = cmt_mapper.getAllCommentsByPage(movieSeq); //게시물수
 		
+		mv.addObject("CommentList",list);
 		mv.addObject("CommentsCnt",Comments_cnt);
 		mv.addObject("movie", movie);
 		mv.setViewName("anime-details");
