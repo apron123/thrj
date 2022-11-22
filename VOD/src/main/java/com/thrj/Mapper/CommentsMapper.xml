@@ -20,7 +20,7 @@
 	         	m.mb_id as mb_id,
 	         	m.mb_profile  as mb_profile
            from movie_comments c,members m 
-          where m.movie_seq = #{movie_seq}
+          where c.movie_seq = #{movie_seq}
         	and m.mb_id = c.mb_id 
          ]]>
     </select>
