@@ -26,6 +26,7 @@ public class Movies {
 	@NonNull private String movie_country;             // 영화 제작국가
 	@NonNull private String admin_id;                  // 관리자 아이디
 	@NonNull private String movie_director;            // 영화감독
+	private String movie_cnt;                          // 페이지 관람수
 	private String movie_age;                          // 영화 시청연령
 	
 }
