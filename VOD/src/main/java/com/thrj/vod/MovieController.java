@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -80,4 +81,9 @@ public class MovieController {
 		return "categories";
 	}
 	
+	@RequestMapping(value="/CommentWrite.do", method = RequestMethod.POST)
+	public String CommentWrite(@ModelAttribute Comments vo) {
+		cmt_mapper.createComments(vo);
+		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
+	}
 }
