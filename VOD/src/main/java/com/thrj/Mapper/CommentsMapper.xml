@@ -20,14 +20,16 @@
 	         	m.mb_id as mb_id,
 	         	m.mb_profile  as mb_profile
            from movie_comments c,members m 
-          where movie_seq = #{movie_seq}
+          where m.movie_seq = #{movie_seq}
         	and m.mb_id = c.mb_id 
          ]]>
     </select>
     
 	<insert id="createComments" parameterType="com.thrj.Entity.Comments">
+	     <![CDATA[
         insert into movie_comments(movie_seq, cmt_content, cmt_date,mb_id)
         values(#{movie_seq}, #{cmt_content}, now(), #{mb_id})
+        ]]>
     </insert>
 	
 </mapper>
