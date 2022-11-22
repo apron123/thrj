@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var ="context"><%=request.getContextPath()%></c:set>
+<c:set var ="crawlingImage"><%="http://gjaischool-b.ddns.net:8086/crawlingImage"%></c:set>
+<c:set var ="memberProfile"><%="http://gjaischool-b.ddns.net:8086/memberProfile"%></c:set>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -57,57 +60,169 @@
             <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="resources/img/anime/details-pic.jpg">
-                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <div class="anime__details__pic set-bg" data-setbg="${crawlingImage}/${movie.movie_img}">
+                            <div class="comment"><i class="fa fa-comments"></i>&nbsp;${CommentsCnt}</div>
+                            <div class="view"><i class="fa fa-eye"></i>&nbsp;${movie.movie_cnt}</div>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="anime__details__text">
                             <div class="anime__details__title">
-                                <h3>Fate Stay Night: Unlimited Blade</h3>
-                                <span>ãã§ã¤ãï¼ã¹ãã¤ãã¤ã, Feitoï¼sutei naito</span>
+                                <h3>${movie.movie_title}</h3>
                             </div>
                             <div class="anime__details__rating">
                                 <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
+                                      <c:choose>
+         								<c:when test = "${movie.movie_rating == 10}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 9}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+         								<c:when test = "${movie.movie_rating == 8}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 7}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 6}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 5}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 4}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 3}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 2}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+									     <c:when test = "${movie.movie_rating == 1}">
+									           <a href="#"><i class="fa fa-star"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									     </c:when>
+         								<c:otherwise>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+									           <a href="#"><i class="fa fa-star-o"></i></a>
+         								</c:otherwise>
+                                      </c:choose>
                                 </div>
-                                <span>1.029 Votes</span>
+                                <span>${movie.movie_rating} Votes</span>
                             </div>
-                            <p>Every human inhabiting the world of Alcia is branded by a âCountâ or a number written on
-                                their body. For Hinaâs mother, her total drops to 0 and sheâs pulled into the Abyss,
-                                never to be seen again. But her motherâs last words send Hina on a quest to find a
-                            legendary hero from the Waste War - the fabled Ace!</p>
+                            <p>${movie.movie_content}</p>
                             <div class="anime__details__widget">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-12 col-md-12">
                                         <ul>
-                                            <li><span>Type:</span> TV Series</li>
-                                            <li><span>Studios:</span> Lerche</li>
-                                            <li><span>Date aired:</span> Oct 02, 2019 to ?</li>
-                                            <li><span>Status:</span> Airing</li>
-                                            <li><span>Genre:</span> Action, Adventure, Fantasy, Magic</li>
+                                            <li><span>영화 유형 :</span> ${movie.movie_type}&nbsp;&nbsp;개봉</li>
+                                            <li><span>영화감독:</span>${movie.movie_director}</li>
+                                            <li><span>영화 개봉날짜:</span> ${movie.movie_open_date}</li>
+                                            <li><span>영화 러닝타임:</span>${movie.movie_runtime}</li>
+                                            <li><span>영화 출연배우:</span>${movie.movie_actor}</li>
+                                            <li><span>영화 제작 국가:</span>${movie.movie_country}</li>
+                                            <li><span>영화 등급:</span>${movie.movie_age}</li>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <ul>
-                                            <li><span>Scores:</span> 7.31 / 1,515</li>
-                                            <li><span>Rating:</span> 8.5 / 161 times</li>
-                                            <li><span>Duration:</span> 24 min/ep</li>
-                                            <li><span>Quality:</span> HD</li>
-                                            <li><span>Views:</span> 131,541</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="anime__details__btn">
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="#" class="watch-btn"><span>Watch Now</span> <i
-                                    class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -116,65 +231,22 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8">
                         <div class="anime__details__review">
+                        
                             <div class="section-title">
                                 <h5>Reviews</h5>
                             </div>
+                           <c:forEach items="${CommentList}" var="Comment"> 
                             <div class="anime__review__item">
                                 <div class="anime__review__item__pic">
-                                    <img src="resources/img/anime/review-1.jpg" alt="">
+                                    <%-- <img src="{memberProfile}/${Comment.mb_profile}.png" alt=""> --%>
+                                    <img src="${memberProfile}/memberProfile.jpg" alt="">
                                 </div>
                                 <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
+                               		<h6>${Comment.mb_name}&nbsp;(&nbsp;${Comment.mb_id}&nbsp;)<span>&nbsp;&nbsp;&nbsp;${Comment.cmt_date}</span></h6>
+                                    <p>${Comment.cmt_content}</p>
                                 </div>
                             </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="resources/img/anime/review-2.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="resources/img/anime/review-3.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="resources/img/anime/review-4.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="resources/img/anime/review-5.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="resources/img/anime/review-6.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
-                                </div>
-                            </div>
+                        </c:forEach>
                         </div>
                         <div class="anime__details__form">
                             <div class="section-title">
