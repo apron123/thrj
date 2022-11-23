@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.thrj.Entity.Comments;
@@ -43,6 +44,7 @@ public class MovieController {
 	
 	@RequestMapping(value="/animeDetails.do", method=RequestMethod.GET)
 	public ModelAndView animeDetails(HttpServletRequest request) {
+		
 		ModelAndView mv = new ModelAndView();
 		
 		int movieSeq = Integer.parseInt(request.getParameter("movie_seq")) ;
@@ -56,6 +58,8 @@ public class MovieController {
 		mv.addObject("CommentsCnt",Comments_cnt);
 		mv.addObject("movie", movie);
 		mv.setViewName("anime-details");
+		
+		
 		return mv;
 	}
 	
@@ -97,4 +101,5 @@ public class MovieController {
 		cmt_mapper.createComments(vo);
 		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
 	}
+
 }
