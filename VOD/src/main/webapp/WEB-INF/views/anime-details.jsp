@@ -4,6 +4,7 @@
 <c:set var ="context"><%=request.getContextPath()%></c:set>
 <c:set var ="crawlingImage"><%="http://gjaischool-b.ddns.net:8086/crawlingImage"%></c:set>
 <c:set var ="memberProfile"><%="http://gjaischool-b.ddns.net:8086/memberProfile"%></c:set>
+<c:set var ="imgUrl"><%="http://gjaischool-b.ddns.net:8086/crawlingImage"%></c:set>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -60,7 +61,7 @@
             <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="${crawlingImage}/${movie.movie_img}">
+                        <div class="anime__details__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
                             <div class="comment"><i class="fa fa-comments"></i>&nbsp;${CommentsCnt}</div>
                             <div class="view"><i class="fa fa-eye"></i>&nbsp;${movie.movie_cnt}</div>
                             
@@ -134,54 +135,6 @@
                                             <li><span>영화 제작 국가:</span>${movie.movie_country}</li>
                                             <li><span>영화 등급:</span>${movie.movie_age}</li>
                                             <li><span>영화 평점:
-                                            <div class="rating">
-                                      <c:choose>
-									     <c:when test = "${movie.movie_rating/2 >= 5}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating/2 >= 4}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									         
-									     </c:when>
-									     <c:when test = "${movie.movie_rating/2 >= 3}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating/2 >= 2}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-									     <c:when test = "${movie.movie_rating/2 >= 1}">
-									           <a href="#"><i class="fa fa-star"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									     </c:when>
-         								<c:otherwise>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-									           <a href="#"><i class="fa fa-star-o"></i></a>
-         								</c:otherwise>
-                                      </c:choose>
-                                </div>
-                                <span>${movie.movie_participate} Votes</span>
                                 </span></li>
                                         </ul>
                                     </div>
@@ -214,13 +167,32 @@
                             <div class="section-title">
                                 <h5>Your Comment</h5>
                             </div>
-                            <form  action="CommentWrite.do" method="post" >
-                            	<input type="hidden" name="mb_id" value="${sessionScope.mb_id}">
-                            	<input type="hidden" name="movie_seq" value="${movie.movie_seq}">
-                                <textarea placeholder="Your Comment" name="cmt_content"></textarea>
+                            
+							<!--  별점 기능 -->
+						 	<form action="giveStarRating.do" class="mb-3" name="myform" id="myform" method="post">
+							<fieldset>
+								<input type="radio" name="reviewStar" value="5" id="rate1"><label
+									for="rate1">★</label>
+								<input type="radio" name="reviewStar" value="4" id="rate2"><label
+									for="rate2">★</label>
+								<input type="radio" name="reviewStar" value="3" id="rate3"><label
+									for="rate3">★</label>
+								<input type="radio" name="reviewStar" value="2" id="rate4"><label
+									for="rate4">★</label>
+								<input type="radio" name="reviewStar" value="1" id="rate5"><label
+									for="rate5">★</label>
+								<!-- <span class="text-bold">별점을 선택해주세요</span> -->
+							</fieldset>
+						</form>	
+						
+                            <form  action="CommentWrite.do" id="cmt" method="post" >
+                            	<input type="hidden" name="mb_id" id="mb_id" value="${sessionScope.mb_id}">
+                            	<input type="hidden" name="movie_seq" id="movie_seq" value="${movie.movie_seq}">
+                                <textarea placeholder="Your Comment" name="cmt_content" id="cmt_content"></textarea>
                                 <c:if test="${sessionScope.mb_id != null}">
                                 	<button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
                                 </c:if>
+                                <button onclick="createComments()" type="button" class="btn btn-danger">리뷰작성</button>
                             </form>
                         </div>
                     </div>
@@ -279,6 +251,33 @@
         <script src="resources/js/owl.carousel.min.js"></script>
         <script src="resources/js/main.js"></script>
 
+		<style>
+		#myform fieldset{
+	    display: inline-block;
+	    direction: rtl;
+	    border:0;
+		}
+		#myform fieldset legend{
+		    text-align: right;
+		}
+		#myform input[type=radio]{
+		    display: none;
+		}
+		#myform label{
+		    font-size: 2em;
+		    color: transparent;
+		    text-shadow: 0 0 0 #f0f0f0;
+		}
+		#myform label:hover{
+		    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+		}
+		#myform label:hover ~ label{
+		    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+		}
+		#myform input[type=radio]:checked ~ label{
+		    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+		}
+		</style>
     </body>
 
     </html>
