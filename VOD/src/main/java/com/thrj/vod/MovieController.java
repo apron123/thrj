@@ -2,6 +2,7 @@ package com.thrj.vod;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.thrj.Entity.Comments;
 import com.thrj.Entity.Movies;
+import com.thrj.Entity.Paging;
 import com.thrj.Mapper.CommentsMapper;
 import com.thrj.Mapper.MovieMapper;
 
@@ -76,7 +78,15 @@ public class MovieController {
 	}
 	
 	@GetMapping("/categories.do")
-	public String categories(Model model) {
+	public String categories(Model model, @ModelAttribute("paging")Paging paging) {
+		
+		int totalRowCount = mapper.getTotalRowCount(paging);
+		paging.setTotalRowCount(totalRowCount);
+		paging.pageSetting();
+		
+		List<Paging> getPageList = mapper.getPageList(paging);
+		model.addAttribute("Paging", paging);
+		
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
 		return "categories";

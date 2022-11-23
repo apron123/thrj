@@ -139,14 +139,14 @@
                             <div class="section-title">
                                 <h5>시청목록</h5></div>
                       <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="4" step="1">
-                        <div class="filter__gallery">
-                                   <div class="product__sidebar__view__item set-bg"
-                                   data-setbg="${imgUrl}/${movies.movie_img}.png">
-                                   <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
-                                   <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
-                                  </div>
-                               </div>
-                            </c:forEach>
+                      	<div class="filter__gallery">
+	                        <div class="product__sidebar__view__item set-bg"
+	                        data-setbg="${imgUrl}/${movies.movie_img}.png">
+	                        <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
+	                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
+	                        </div>
+                        </div>
+                      </c:forEach>
     </div>
 </div>
 </div>
