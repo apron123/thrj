@@ -38,7 +38,7 @@
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
                         	<c:choose>
 								<c:when test = "${sessionScope.mb_id != null}">	
-                                    <a href="#"><span class="icon_profile"></span></a>
+                                    <a href="${context}/myinfoMember.do"><span class="icon_profile"></span></a>
                                     <a href="${context}/logout.do"><span class="icon_close"></span></a>	
                                 </c:when>
                                 <c:otherwise>
