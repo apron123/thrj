@@ -35,7 +35,6 @@
                 <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        
                         	<c:choose>
 								<c:when test = "${sessionScope.mb_id != null}">	
                                     <a href="#"><span class="icon_profile"></span></a>
