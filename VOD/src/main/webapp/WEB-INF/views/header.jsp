@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<c:set var ="context"><%=request.getContextPath()%></c:set>
  <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
@@ -38,7 +39,7 @@
                         	<c:choose>
 								<c:when test = "${sessionScope.mb_id != null}">	
                                     <a href="#"><span class="icon_profile"></span></a>
-                                    <a href="./logout.do"><span class="icon_close"></span></a>	
+                                    <a href="${context}/logout.do"><span class="icon_close"></span></a>	
                                 </c:when>
                                 <c:otherwise>
                                      <a href="login.do"><span class="icon_profile"></span></a>
