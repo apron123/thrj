@@ -22,14 +22,30 @@
    	<!-- 카운팅  -->
 	<update id="raiseLookupCount" parameterType="int">
         update movies 
-        set movie_cnt=movie_cnt+1 
-        where movie_seq=#{movie_seq}
+        set movie_cnt = movie_cnt+1 
+        where movie_seq = #{movie_seq}
 	</update>
+	
+	<!-- 배너 하나씩 추출할때 -->
+   	<select id="bannerOne" resultType="com.thrj.Entity.Movies">
+       select 
+	     movie_seq
+	     , movie_title
+	     , movie_type
+	     , movie_content
+	     , movie_img
+	     , movie_rating
+	     , movie_open_date 
+      from movies 
+      order by movie_cnt desc
+	  limit 1
+   </select>
 	
 	<!-- 페이징 -->
 	<select id="getTotalRowCount" parameterType="com.thrj.Entity.Paging" resultType="int">
 	    select count(*) from movies
 	</select>
+	
 	<select id="getPageList" resultType="com.thrj.Entity.Movies" parameterType="com.thrj.Entity.Paging">
 	    select @rownum:=@rownum+1 as no, m.*
 		from movies m

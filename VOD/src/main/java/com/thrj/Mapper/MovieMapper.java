@@ -18,8 +18,9 @@ public interface MovieMapper {
 	public List<Movies> movieList(); //영화기록
 	public Movies animeDetails(int movie_seq); //박스오피스에서 번호값을 받았을경우
 	public void raiseLookupCount(int movie_seq);//게시물을 볼경우 count
-	public List<Movies> bannerList();
+	public Movies bannerOne(); //하나만 사용할때
 	
+	public List<Movies> bannerList();
 	public int getTotalRowCount(Paging paging);
 	public List<Paging> getPageList(Paging paging);
 }
