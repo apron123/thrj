@@ -101,10 +101,8 @@
                     	<a href="categories.do?curPage=1"><i class="fa fa-angle-double-left"></i></a>
                     	<a href="categories.do?curPage=${paging.curPage-1 }"><i class="fa fa-angle-left"></i></a>
                     	<c:forEach begin="${paging.firstPage}" end="${paging.lastPage}" var="i">
-                    		<a href="categories.do?curPage=${i}">
-                    			<c:if test="${i eq paging.curPage }"><span class="current-page">${i}</span></c:if>
-                    			<c:if test="${i ne paging.curPage }">${i }</c:if>
-                    		</a>
+                   			<c:if test="${i eq paging.curPage }"><a href="categories.do?curPage=${i}" class="current-page">${i}</a></c:if>
+                   			<c:if test="${i ne paging.curPage }"><a href="categories.do?curPage=${i}">${i }</a></c:if>
                     	</c:forEach>
                     	<a href="categories.do?curPage=${paging.curPage+1 }"><i class="fa fa-angle-right"></i></a>
                     	<a href="categories.do?curPage=${paging.totalPageCount}"><i class="fa fa-angle-double-right"></i></a>
