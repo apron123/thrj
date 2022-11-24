@@ -64,7 +64,7 @@
             <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+                        <div class="hero__items set-bg" data-setbg="${imgUrl}/${movie.movie_img}.png">
                             <div class="comment"><i class="fa fa-comments"></i>&nbsp;${CommentsCnt}</div>
                             <div class="view"><i class="fa fa-eye"></i>&nbsp;${movie.movie_cnt}</div>
                             
@@ -178,21 +178,21 @@
                             </div>
                             
 							<!--  별점 기능 -->
-						 	<form action="giveStarRating.do" class="mb-3" name="myform" id="myform" method="post">
-							<fieldset>
-								<input type="radio" name="reviewStar" value="5" id="rate1"><label
-									for="rate1">★</label>
-								<input type="radio" name="reviewStar" value="4" id="rate2"><label
-									for="rate2">★</label>
-								<input type="radio" name="reviewStar" value="3" id="rate3"><label
-									for="rate3">★</label>
-								<input type="radio" name="reviewStar" value="2" id="rate4"><label
-									for="rate4">★</label>
-								<input type="radio" name="reviewStar" value="1" id="rate5"><label
-									for="rate5">★</label>
-								<!-- <span class="text-bold">별점을 선택해주세요</span> -->
-							</fieldset>
-						</form>	
+						 	<div class="mb-3" name="myform" id="myform" >
+								<fieldset>
+									<input type="radio" name="reviewStar" value="5" id="rate1"><label
+										for="rate1">★</label>
+									<input type="radio" name="reviewStar" value="4" id="rate2"><label
+										for="rate2">★</label>
+									<input type="radio" name="reviewStar" value="3" id="rate3"><label
+										for="rate3">★</label>
+									<input type="radio" name="reviewStar" value="2" id="rate4"><label
+										for="rate4">★</label>
+									<input type="radio" name="reviewStar" value="1" id="rate5"><label
+										for="rate5">★</label>
+									<!-- <span class="text-bold">별점을 선택해주세요</span> -->
+								</fieldset>
+							</div>	
 						
                             <form  action="CommentWrite.do" id="cmt" method="post" >
                             	<input type="hidden" name="mb_id" id="mb_id" value="${sessionScope.mb_id}">
@@ -288,6 +288,32 @@
 		    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 		}
 		</style>
+
+		
+	   <script type="text/javascript">
+        $('#myform').on('click' ,function () {
+         
+          var movie_rating = $('input[name="reviewStar"]:checked').val();
+          var movie_seq = $('#movie_seq').val();
+        if(movie_rating !=null){ 
+  		$.ajax({
+			url : "/vod/animeDetail.do",
+			method : "post",
+			datatype :'json',
+			data : {
+			"movie_seq" : movie_seq,
+			"movie_rating" : movie_rating
+			},
+			success : function(data){
+				console.log('성공');
+			},
+			error : function(e){
+				console.log(e);
+			}
+		});
+        }});
+        
+    </script>
     </body>
 
     </html>

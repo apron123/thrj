@@ -52,4 +52,11 @@
 		limit #{firstRow},#{lastRow};
 	</select>
 	
+	<update id="updateStarRating" parameterType="com.thrj.Entity.Movies">
+	    update movies
+	    set movie_participate = movie_participate + 1, movie_rating = movie_rating + #{movie_rating}*2 / movie_participate
+	    where movie_seq = #{movie_seq}
+	    
+	</update> 
+	
 </mapper>

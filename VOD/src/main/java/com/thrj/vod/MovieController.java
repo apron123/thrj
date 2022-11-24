@@ -101,5 +101,12 @@ public class MovieController {
 		cmt_mapper.createComments(vo);
 		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
 	}
+	
+	@RequestMapping("/animeDetail.do")
+	public @ResponseBody String giveStarRating(@ModelAttribute Movies vo) {
+		mapper.updateStarRating(vo);
+		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
+		
+	}
 
 }
