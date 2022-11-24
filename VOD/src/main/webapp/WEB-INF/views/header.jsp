@@ -28,7 +28,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="#">랭킹</a></li>
-                                <li><a href="#">상영예정작</a></li>
+                                <li><a href="${context}/blog.do">상영예정작</a></li>
                             </ul>
                         </nav>
                     </div>
