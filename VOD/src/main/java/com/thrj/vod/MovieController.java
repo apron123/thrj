@@ -77,16 +77,17 @@ public class MovieController {
 		return mv;
 	}
 	
-	@GetMapping("/animeWatching.do")
+	@GetMapping("/NeTupidiaRanking.do")
 	public String animeWatching(Model model) {
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
 		return "anime-watching";
 	}
 	
-	@GetMapping("/blog.do")
-	public String blog() {
-		
+	@GetMapping("/NeTupidiaUpcoming.do")
+	public String blog(Model model) {
+		List<Movies> list = mapper.movieList();
+		model.addAttribute("list",list);
 		return "blog";
 	}
 	
