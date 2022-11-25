@@ -42,23 +42,37 @@ public class MovieController {
 		return "index";
 	}
 	
+	//상세페이지 사이드바 장르별 리스트 
+//	@GetMapping(value="/genreList.do")
+//	public String genreList(Movies vo, Model model) {
+//		
+//		List<Movies> list_genre = mapper.movieGenreList();
+//		model.addAttribute("list_genre",list_genre);
+//		
+//		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
+//		
+//	}
+	
 	@RequestMapping(value="/animeDetails.do", method=RequestMethod.GET)
-	public ModelAndView animeDetails(HttpServletRequest request) {
+	public ModelAndView animeDetails(HttpServletRequest request, Model model) {
 		
 		ModelAndView mv = new ModelAndView();
 		
 		int movieSeq = Integer.parseInt(request.getParameter("movie_seq")) ;
+		String movieType = request.getParameter("movie_type");
 		
 		mapper.raiseLookupCount(movieSeq); //영화 게시물 view수
 		Movies movie=mapper.animeDetails(movieSeq); //내용 시나리오
 		int Comments_cnt=cmt_mapper.CommentsCnt(movieSeq); //댓글수
 	    List<Comments> list = cmt_mapper.getAllCommentsByPage(movieSeq); //게시물수
+	    
+		List<Movies> list_genre = mapper.movieGenreList(movie);
+		model.addAttribute("list_genre",list_genre);
 		
 		mv.addObject("CommentList",list);
 		mv.addObject("CommentsCnt",Comments_cnt);
 		mv.addObject("movie", movie);
 		mv.setViewName("anime-details");
-		
 		
 		return mv;
 	}
@@ -108,5 +122,5 @@ public class MovieController {
 		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
 		
 	}
-
+	
 }
