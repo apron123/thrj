@@ -212,8 +212,6 @@
                             </div>
                             <c:forEach items="${list_genre}" var="movies" varStatus="i" begin="0" end="3" step="1">
                             <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                  <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
                             </div>
                          </c:forEach>
@@ -299,7 +297,7 @@
 			}
 		});
         }});
-        
+         
     </script>
     </body>
 
