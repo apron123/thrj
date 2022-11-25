@@ -214,7 +214,7 @@
                             <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
                                  <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
                             </div>
-                         </c:forEach>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
