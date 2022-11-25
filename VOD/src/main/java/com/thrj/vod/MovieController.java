@@ -46,37 +46,41 @@ public class MovieController {
 	    
 		return "index";
 	}
-
 	@RequestMapping(value="/animeDetails.do", method=RequestMethod.GET)
-	public ModelAndView animeDetails(HttpServletRequest request) {
+	public ModelAndView animeDetails(HttpServletRequest request, Model model) {
 		
 		ModelAndView mv = new ModelAndView();
 		
 		int movieSeq = Integer.parseInt(request.getParameter("movie_seq")) ;
+		String movieType = request.getParameter("movie_type");
 		
 		mapper.raiseLookupCount(movieSeq); //영화 게시물 view수
 		Movies movie=mapper.animeDetails(movieSeq); //내용 시나리오
 		int Comments_cnt=cmt_mapper.CommentsCnt(movieSeq); //댓글수
 	    List<Comments> list = cmt_mapper.getAllCommentsByPage(movieSeq); //게시물수
+	    
+		List<Movies> list_genre = mapper.movieGenreList(movie);
+		model.addAttribute("list_genre",list_genre);
 		
 		mv.addObject("CommentList",list);
 		mv.addObject("CommentsCnt",Comments_cnt);
 		mv.addObject("movie", movie);
 		mv.setViewName("anime-details");
 		
-		
 		return mv;
 	}
 	
-	@GetMapping("/animeWatching.do")
-	public String animeWatching() {
-		
+	@GetMapping("/NeTupidiaRanking.do")
+	public String animeWatching(Model model) {
+		List<Movies> list = mapper.movieList();
+		model.addAttribute("list",list);
 		return "anime-watching";
 	}
 	
-	@GetMapping("/blog.do")
-	public String blog() {
-		
+	@GetMapping("/NeTupidiaUpcoming.do")
+	public String blog(Model model) {
+		List<Movies> list = mapper.movieList();
+		model.addAttribute("list",list);
 		return "blog";
 	}
 	
@@ -113,6 +117,4 @@ public class MovieController {
 		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
 		
 	}
-
-
 }

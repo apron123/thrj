@@ -24,7 +24,8 @@ public interface MovieMapper {
 	public List<Movies> bannerList();
 	public int getTotalRowCount(Paging paging);
 	public List<Paging> getPageList(Paging paging);
-	public void updateStarRating(Movies vo);
+	public void updateStarRating(Movies vo); // 유저 별점 남기기 
+	public List<Movies> movieGenreList(Movies vo); // 상세페이지 장르별 유사 영화 추천 
 	public List<History> historySeq();
 	
 }
