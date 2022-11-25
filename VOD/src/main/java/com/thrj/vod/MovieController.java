@@ -78,8 +78,9 @@ public class MovieController {
 	}
 	
 	@GetMapping("/animeWatching.do")
-	public String animeWatching() {
-		
+	public String animeWatching(Model model) {
+		List<Movies> list = mapper.movieList();
+		model.addAttribute("list",list);
 		return "anime-watching";
 	}
 	
