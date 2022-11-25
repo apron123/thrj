@@ -42,7 +42,8 @@
 	      , movie_director
 	      , movie_cnt
 	      , movie_participate
-	     from movies limit 0,3
+	     from movies 
+	     limit 0,3
 	     ]]>	
 	</select> 
 	
