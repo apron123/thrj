@@ -41,7 +41,7 @@
         <div class="container">
             <div class="hero__slider owl-carousel">
             
-               <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
+            <c:forEach items="${list}" var="movies">
                <div class="hero__items set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
                     <div class="row">
                         <div class="col-lg-6">
