@@ -37,6 +37,9 @@ public class MovieController {
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
 		
+		List<Movies> list1 = mapper.bannerList();
+		model.addAttribute("list1",list1);
+		
 		HttpSession session = request.getSession();
 		String mb_id=(String)session.getAttribute("mb_id");
 		List<History> history_seq = mapper.historySeq(mb_id);
