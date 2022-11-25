@@ -17,6 +17,7 @@
 	    		  , movie_actor
 	    		  , movie_country
 	    		  , admin_id
+	    		  , movie_director
 	    	      , movie_cnt
 	    		  , movie_participate
 	    		from movies where movie_seq = #{movie_seq}
@@ -38,6 +39,7 @@
 	      , movie_actor
 	      , movie_country
 	      , admin_id
+	      , movie_director
 	      , movie_cnt
 	      , movie_participate
 	     from movies limit 0,3
@@ -59,6 +61,7 @@
 	      , movie_actor
 	      , movie_country
 	      , admin_id
+	      , movie_director
 	      , movie_cnt
 	      , movie_participate
 	    from movies
@@ -84,6 +87,7 @@
 	      , movie_actor
 	      , movie_country
 	      , admin_id
+	      , movie_director
 	      , movie_cnt
 	      , movie_participate
         from movies 
@@ -112,6 +116,8 @@
 	     , movie_content
 	     , movie_img
 	     , movie_rating
+	     , movie_director
+	     , movie_country
 	     , movie_open_date 
       from movies 
       order by movie_cnt desc
