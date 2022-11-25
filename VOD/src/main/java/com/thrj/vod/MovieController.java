@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.thrj.Entity.Comments;
+import com.thrj.Entity.History;
 import com.thrj.Entity.Movies;
 import com.thrj.Entity.Paging;
 import com.thrj.Mapper.CommentsMapper;
@@ -38,10 +39,14 @@ public class MovieController {
 		model.addAttribute("list",list);
 		
 		List<Movies> list_1 = mapper.bannerList();
-	      model.addAttribute("list_1",list_1);
+	    model.addAttribute("list_1",list_1);
+	      
+	    List<History> history_seq = mapper.historySeq();
+	    model.addAttribute("history_seq",history_seq);
+	    
 		return "index";
 	}
-	
+
 	@RequestMapping(value="/animeDetails.do", method=RequestMethod.GET)
 	public ModelAndView animeDetails(HttpServletRequest request) {
 		
@@ -108,5 +113,6 @@ public class MovieController {
 		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
 		
 	}
+
 
 }
