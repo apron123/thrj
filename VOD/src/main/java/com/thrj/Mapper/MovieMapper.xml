@@ -11,7 +11,9 @@
 	
     <!--List -->	
    	<select id="movieList" resultType="com.thrj.Entity.Movies">
+   	    <![CDATA[
 	     select * from movies limit 0,3
+	     ]]>	
 	</select> 
 	
    	    <!--Similar Genre List -->	
@@ -37,9 +39,11 @@
 	
    	<!-- 카운팅  -->
 	<update id="raiseLookupCount" parameterType="int">
+	  <![CDATA[
         update movies 
         set movie_cnt = movie_cnt+1 
         where movie_seq = #{movie_seq}
+        ]]>	
 	</update>
 	
 	<!-- 배너 하나씩 추출할때 -->
