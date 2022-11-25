@@ -1,79 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var ="context"><%=request.getContextPath()%></c:set>
+<c:set var ="imgUrl"><%="http://gjaischool-b.ddns.net:8086/crawlingImage"%></c:set>
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Anime Template">
-    <meta name="keywords" content="Anime, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NeTupidia</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/plyr.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
-</head>
-
+	<%@ include file="./include/head.jsp"%>
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
    <!-- header -->
 	<%@ include file="./header.jsp"%>
-
     <!-- Normal Breadcrumb Begin -->
-    <section class="normal-breadcrumb set-bg" data-setbg="resources/img/normal-breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="normal__breadcrumb__text">
-                        <h2>Login</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<%@ include file="./include/Breadcrumb.jsp"%>
     <!-- Normal Breadcrumb End -->
-
     <!-- Login Section Begin -->
     <section class="login spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="login__form">
-                        <h3>Login</h3>
-                        <form action="#">
+                        <h3>로그인 하기</h3>
+                        <form action="login_ok.do"  method="post" role="form" id="loginFrm">
                             <div class="input__item">
-                                <input type="text" placeholder="Email address">
-                                <span class="icon_mail"></span>
+                                <input type="text" placeholder="아이디를 입력해주세요" id="mb_id" name="mb_id" class="mb_id">
+                                <span class="icon_id"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Password">
+                                <input type="password" placeholder="비밀번호 입력해주세요" id="mb_pw" name="mb_pw" class="mb_pw">
                                 <span class="icon_lock"></span>
                             </div>
-                            <button type="submit" class="site-btn">Login Now</button>
+                            <div class="loginsite-btn">
+	                            <button type="button" class="site-btn" onclick="ajaxLoginCheck();">로그인</button>
+                            </div>
                         </form>
-                        <a href="#" class="forget_pass">Forgot Your Password?</a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="login__register">
-                        <h3>Don't you have an account?</h3>
+                        <h3>재미있는 영화를 찾으시나요?<br/>회원가입하시고 혜택을 누리세요!</h3>
                         <a href="#" class="primary-btn">회원 가입</a>
                     </div>
                 </div>
@@ -93,7 +60,6 @@
 
 <!-- footer section -->
 		<%@ include file="./footer.jsp"%>
-
       <!-- Search model Begin -->
       <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
@@ -104,18 +70,6 @@
         </div>
     </div>
     <!-- Search model end -->
-
-    <!-- Js Plugins -->
-    <script src="resources/js/jquery-3.3.1.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/player.js"></script>
-    <script src="resources/js/jquery.nice-select.min.js"></script>
-    <script src="resources/js/mixitup.min.js"></script>
-    <script src="resources/js/jquery.slicknav.js"></script>
-    <script src="resources/js/owl.carousel.min.js"></script>
-    <script src="resources/js/main.js"></script>
-
-
+	<%@ include file="./include/jsscript.jsp"%>
 </body>
-
 </html>

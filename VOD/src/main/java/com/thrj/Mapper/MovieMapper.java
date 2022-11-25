@@ -3,7 +3,7 @@ package com.thrj.Mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -23,4 +23,6 @@ public interface MovieMapper {
 	public List<Movies> bannerList();
 	public int getTotalRowCount(Paging paging);
 	public List<Paging> getPageList(Paging paging);
+	public void updateStarRating(Movies vo);
+	
 }
