@@ -24,7 +24,12 @@
 	
    	<!-- 배너 -->
    	<select id="bannerList" resultType="com.thrj.Entity.Movies">
-       select * from movies order by movie_cnt desc
+   	 <![CDATA[
+        select * from movies 
+		WHERE movie_cnt > 0
+ 		order by movie_cnt desc 
+ 		limit 0,3
+ 	   ]]>	
    </select>
 	
    	<!-- 카운팅  -->

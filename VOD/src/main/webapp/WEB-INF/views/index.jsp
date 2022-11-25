@@ -81,7 +81,7 @@
                         </div>
                         <div class="row">
                         
-                        <c:forEach items="${list1}" var="movies" varStatus="i" begin="3" end="5" step="1">
+                        <c:forEach items="${list1}" var="movies">
                                <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div style="cursor: pointer;" onclick="location.href='animeDetails.do?movie_seq=${movies.movie_seq}';">
                                    <div class="product__item">
