@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.thrj.Entity.Comments;
 import com.thrj.Entity.History;
+import com.thrj.Entity.Members;
 import com.thrj.Entity.Movies;
 import com.thrj.Entity.Paging;
 import com.thrj.Mapper.CommentsMapper;
@@ -33,15 +35,18 @@ public class MovieController {
 	@Autowired
 	public CommentsMapper cmt_mapper;
 	
-	@GetMapping(value={"/index.do","/"})
-	public String index(Model model) {
+	@RequestMapping(value={"/index.do","/"}, method=RequestMethod.GET)
+	public String index(Model model, HttpServletRequest request) {
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
 		
 		List<Movies> list_1 = mapper.bannerList();
 	    model.addAttribute("list_1",list_1);
+	    
+	    HttpSession session = request.getSession();
+		String mb_id=(String)session.getAttribute("mb_id");
 	      
-	    List<History> history_seq = mapper.historySeq();
+	    List<History> history_seq = mapper.historySeq(mb_id);
 	    model.addAttribute("history_seq",history_seq);
 	    
 		return "index";
