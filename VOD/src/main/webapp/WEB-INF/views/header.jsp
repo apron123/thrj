@@ -30,7 +30,7 @@
                                         <li><a href="#">판타지</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="NeTupidiaRanking.do">랭킹</a></li>
+                                <li><a href="NeTupidiaRanking.do">박스오피스</a></li>
                                 <li><a href="NeTupidiaUpcoming.do">상영예정작</a></li>
                             </ul>
                         </nav>
