@@ -166,7 +166,7 @@
 		</if>
       <![CDATA[       
            order by h.history_date  desc
-           LIMIT 4
+           LIMIT 5
 		]]>
 	</select>
 
