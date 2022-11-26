@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.thrj.Entity.Comments;
 import com.thrj.Entity.History;
+import com.thrj.Entity.Members;
 import com.thrj.Entity.Movies;
 import com.thrj.Entity.Paging;
 import com.thrj.Mapper.CommentsMapper;
@@ -42,6 +43,7 @@ public class MovieController {
 		
 		HttpSession session = request.getSession();
 		String mb_id=(String)session.getAttribute("mb_id");
+		
 		List<History> history_seq = mapper.historySeq(mb_id);
 		model.addAttribute("history_seq",history_seq);
 		return "index";
@@ -82,24 +84,34 @@ public class MovieController {
 		return mv;
 	}
 	
-	@GetMapping("/NeTupidiaRanking.do")
+	@RequestMapping(value="/NeTupidiaRanking.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String animeWatching(Model model) {
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
 		return "anime-watching";
 	}
 	
-	@GetMapping("/NeTupidiaUpcoming.do")
+	@RequestMapping(value="/NeTupidiaUpcoming.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String blog(Model model) {
 		List<Movies> list = mapper.movieList();
 		model.addAttribute("list",list);
 		return "blog";
 	}
 	
-	@GetMapping("/blogDetails.do")
-	public String blogDetails() {
-		
-		return "blog-details";
+	@RequestMapping(value="/RankingDetails.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView rankingDetails(@ModelAttribute Movies vo, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("movies",vo);
+		mv.setViewName("blog-details");
+		return mv;
+	}
+	
+	@RequestMapping(value="/UpcomingDetails.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView upcomingDetails(@ModelAttribute Movies vo, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("movies",vo);
+		mv.setViewName("blog-details");
+		return mv;
 	}
 	
 	@GetMapping("/categories.do")
