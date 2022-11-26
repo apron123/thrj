@@ -53,6 +53,12 @@
 	     order by m.movie_seq
 	     ]]>
 	</select>
+	
+	<select id="categorieList" resultType="com.thrj.Entity.Movies">
+   	    <![CDATA[
+	      select * from movies
+	     ]]>
+	</select>
 
 	<!--Similar Genre List -->
 	<select id="movieGenreList" parameterType="com.thrj.Entity.Movies" resultType="com.thrj.Entity.Movies">
@@ -133,13 +139,11 @@
 	</select>
 
 	<!-- 페이징 -->
-	<select id="getTotalRowCount"
-		parameterType="com.thrj.Entity.Paging" resultType="int">
+	<select id="getTotalRowCount" parameterType="com.thrj.Entity.Paging" resultType="int">
 		select count(*) from movies
 	</select>
 
-	<select id="getPageList" resultType="com.thrj.Entity.Movies"
-		parameterType="com.thrj.Entity.Paging">
+	<select id="getPageList" resultType="com.thrj.Entity.Movies" parameterType="com.thrj.Entity.Paging">
 		select @rownum:=@rownum+1 as no, m.*
 		from movies m
 		limit
