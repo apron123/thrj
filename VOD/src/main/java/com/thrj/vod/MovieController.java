@@ -50,28 +50,40 @@ public class MovieController {
 	}
 	
 	//상세페이지 사이드바 장르별 리스트 
-//	@GetMapping(value="/genreList.do")
-//	public String genreList(Movies vo, Model model) {
-//		
-//		List<Movies> list_genre = mapper.movieGenreList();
-//		model.addAttribute("list_genre",list_genre);
-//		
-//		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
-//		
-//	}
+
+	@GetMapping(value="/genreList.do")
+	public String genreList(Movies vo, Model model) {
+		/*
+		List<Movies> list_genre = mapper.movieGenreList();
+		model.addAttribute("list_genre",list_genre);
+		
+		return "redirect:/animeDetails.do?movie_seq="+vo.getMovie_seq();
+	 */
+		return null;
+	}
 	
 	@RequestMapping(value="/animeDetails.do", method=RequestMethod.GET)
 	public ModelAndView animeDetails(HttpServletRequest request, Model model) {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		int movieSeq = Integer.parseInt(request.getParameter("movie_seq")) ;
+		int movieSeq = Integer.parseInt(request.getParameter("movie_seq")) ;//게시물 번호 int형으로 변환
 		String movieType = request.getParameter("movie_type");
 		
 		mapper.raiseLookupCount(movieSeq); //영화 게시물 view수
 		Movies movie=mapper.animeDetails(movieSeq); //내용 시나리오
 		int Comments_cnt=cmt_mapper.CommentsCnt(movieSeq); //댓글수
 	    List<Comments> list = cmt_mapper.getAllCommentsByPage(movieSeq); //게시물수
+	    
+	    HttpSession session = request.getSession();
+		String mb_id=(String)session.getAttribute("mb_id");
+		
+		if(mb_id!=null && !"".contentEquals(mb_id)) {
+			Movies vo =new Movies();
+			vo.setMovie_seq(movieSeq);
+			vo.setMb_id(mb_id);
+		    mapper.insertHistorySeq(vo);//누락된 시청목록 insert 하기
+		}
 	    
 		List<Movies> list_genre = mapper.movieGenreList(movie);
 		model.addAttribute("list_genre",list_genre);

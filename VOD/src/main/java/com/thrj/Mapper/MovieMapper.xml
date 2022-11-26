@@ -152,6 +152,7 @@
 	</update>
 
 
+	<!-- 시청한 history  -->
 	<select id="historySeq" parameterType="string"
 		resultType="com.thrj.Entity.Movies">
 	      <![CDATA[
@@ -169,6 +170,20 @@
            LIMIT 5
 		]]>
 	</select>
-
+	
+	<!-- insert한 history  -->
+	<insert id="insertHistorySeq" parameterType="com.thrj.Entity.Movies">
+	  <![CDATA[
+		INSERT INTO history (
+				mb_id
+			  , movie_seq
+			  , history_date
+			   ) VALUES(
+			    #{mb_id}
+			  , #{movie_seq}
+			  , DATE_FORMAT(SYSDATE(), '%Y-%m-%d %H:%i:%s')
+		 	)
+		]]>
+	</insert>
 
 </mapper>

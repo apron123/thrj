@@ -20,5 +20,6 @@ public interface MovieMapper {
 	public List<Paging> getPageList(Paging paging);
 	public void updateStarRating(Movies vo); // 유저 별점 남기기 
 	public List<Movies> movieGenreList(Movies vo); // 상세페이지 장르별 유사 영화 추천 
+	public void insertHistorySeq(Movies vo); // 상세페이지 장르별 유사 영화 삽입
 	public List<History> historySeq(String mb_id);
 }
