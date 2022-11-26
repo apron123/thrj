@@ -158,8 +158,8 @@
 	    select 
 	          m.*
 	        from movies m,members u,history h
-           where m.movie_seq =h.movie_seq
-             and u.mb_id =h.mb_id
+           where m.movie_seq = h.movie_seq
+             and u.mb_id = h.mb_id
           ]]>
 		<if test='mb_id != null and !"".equals(mb_id)'>
 			and h.mb_id = #{mb_id}
