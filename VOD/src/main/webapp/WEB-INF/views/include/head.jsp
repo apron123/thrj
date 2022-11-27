@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<c:set var ="context"><%=request.getContextPath()%></c:set>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Anime Template">
