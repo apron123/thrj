@@ -98,8 +98,6 @@ public class MovieController {
 	
 	@RequestMapping(value="/NeTupidiaRanking.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String animeWatching(Model model) {
-		List<Movies> list = mapper.movieList();
-		model.addAttribute("list",list);
 		return "anime-watching";
 	}
 	
