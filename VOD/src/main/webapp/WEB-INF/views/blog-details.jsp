@@ -117,14 +117,20 @@
 				let movie_open_date = document.getElementById("movie_open_date");
 				movie_open_date.append(genreNm+" , "+typeNm+" ( "+prdtYear+"년도 )");
 				
+				
 				let showTm = movieInfo.showTm;
-				let directors = movieInfo.directors[0].peopleNm;
+				if(movieInfo.directors.length > 0){
+					let directors = movieInfo.directors[0].peopleNm;
+				}
 				let openDt = movieInfo.openDt;
 				let nationNm = movieInfo.nations[0].nationNm;
 				let watchGradeNm = movieInfo.audits[0]['watchGradeNm'];
 
 				var output = "<li><span>상영시간 :</span>"+showTm+" 분</li>";
-				output+="<li><span>감독 :</span> "+directors+"</li>";
+				
+				if(movieInfo.directors.length > 0){
+				  output+="<li><span>감독 :</span> "+directors+"</li>";
+				}
 				output+="<li><span>개봉일 :</span> "+openDt.substr(0,4)+"년 "+openDt.substr(4,2)+"월 "+openDt.substr(6,2)+"일 개봉</li>";
 				output+="<li><span>제작국가 :</span> "+nationNm+"</li>";
 				
@@ -143,7 +149,10 @@
 				output+="<li><span>영화장르 :</span> "+genreNm+"</li>";
 				myUl.innerHTML = output;	
 				
-			    var tagOutput="<a href='#'>"+directors+"</a>";
+			    var tagOutput="";
+			    if(movieInfo.directors.length > 0){
+			    	tagOutput+="<a href='#'>"+directors+"</a>";
+			    }
 			    tagOutput+="<a href='#'>"+movieNm+"</a>";
 			    tagOutput+="<a href='#'>"+genreNm+"</a>";
 			    
@@ -161,8 +170,13 @@
                 .then(function(res){
                 	poster_path.src=base_url+res.results[0].poster_path;
                 	var v_output = "<h4>영화 줄거리</h4>";
-                	v_output+="<p>"+res.results[0].overview+"</p>";
+                	
+                	 if(res.results[0].overview != "" ){
+                		v_output+="<p>"+res.results[0].overview+"</p>";
+                	 }
+                	 
                 	overview.innerHTML = v_output;
+                	
                 });
 			});
 		}
