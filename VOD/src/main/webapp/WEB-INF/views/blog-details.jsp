@@ -146,7 +146,6 @@
 			    var tagOutput="<a href='#'>"+directors+"</a>";
 			    tagOutput+="<a href='#'>"+movieNm+"</a>";
 			    tagOutput+="<a href='#'>"+genreNm+"</a>";
-			    tagOutput+="<a href='#'>"+typeNm+"</a>";
 			    
 			    if(movieInfo.actors.length > 0 ){
 				  for(let i=0; i<movieInfo.actors.length; i++){
