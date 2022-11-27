@@ -8,8 +8,7 @@
     <title>NeTupidia</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Css Styles -->
     <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
@@ -20,5 +19,21 @@
     <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/style.css" type="text/css">
     <link rel="stylesheet" href="resources/css/jquery-ui.css" type="text/css">
-    
+    <style type="text/css">
+		.product__page__filter{
+			float:right;
+			width:350px;
+		}
+		
+		.nice-selects {
+			float: none;
+			display: inline-block;
+			font-size: 15px;
+			color: #3d3d3d;
+			border-radius: 0;
+			padding-left: 15px;
+			height: 32px;
+			line-height: 32px;
+		}
+</style>
 </head>
