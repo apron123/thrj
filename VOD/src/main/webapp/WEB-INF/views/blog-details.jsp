@@ -51,6 +51,8 @@
                     	<br/>
                         <div class="blog__details__item__text" id="blog__details__item__text">
                         </div>
+                         <!-- 내용입력할때 -->
+                        <div class="blog__details__item__text" id="sub_blog__details"></div>
                         <!-- 장르  -->
                         <div class="blog__details__tags" id="blog__details__tags">
                         </div>
