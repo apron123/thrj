@@ -164,19 +164,24 @@
 			    
 			 	tags.innerHTML=tagOutput;
 				const searchUrl = "https://api.themoviedb.org/3/search/movie?api_key="+api_key+"&language=ko-Kr&page=1&include_adult=false&query="+movieNm;
-				
+				const movePhotoId=$("#youtube").val();
 				fetch(searchUrl)
                 .then(res => res.json())
                 .then(function(res){
-                	poster_path.src=base_url+res.results[0].poster_path;
-                	var v_output = "<h4>영화 줄거리</h4>";
                 	
-                	 if(res.results[0].overview != "" ){
-                		v_output+="<p>"+res.results[0].overview+"</p>";
-                	 }
-                	 
+                	for(let i=0; i<res.results.length; i++){
+                		
+                	if(res.results[i].id == movePhotoId){
+                		poster_path.src=base_url+res.results[i].poster_path;
+                	
+                		var v_output = "<h4>영화 줄거리</h4>";
+                		if(res.results[0].overview != "" ){
+	                		v_output+="<p>"+res.results[i].overview+"</p>";
+	                	 }
+                	  }	 
+                	
+                	}
                 	overview.innerHTML = v_output;
-                	
                 });
 			});
 		}
