@@ -51,6 +51,7 @@
 	     ,m.movie_runtime,m.movie_actor,m.movie_country,m.admin_id
 	     ,m.movie_director,m.movie_cnt,m.movie_participate
 	     order by m.movie_seq
+	     limit 3
 	     ]]>
 	</select>
 	
@@ -112,6 +113,7 @@
 	     ,m.movie_runtime,m.movie_actor,m.movie_country,m.admin_id
 	     ,m.movie_director,m.movie_cnt,m.movie_participate
 	     order by m.movie_participate desc
+	     limit 3
  	   ]]>
 	</select>
 
@@ -176,7 +178,7 @@
       <![CDATA[       
            group by  m.movie_seq, m.movie_title, m.movie_img
            order by m.movie_seq desc
-           limit 7
+           limit 4
 		]]>
 	</select>
 	
