@@ -159,12 +159,12 @@
 			    if(movieInfo.directors.length > 0){
 			    	tagOutput+="<a href='https://movie.daum.net/search?q="+movieInfo.directors[0].peopleNm+"#tab=all'  target='blank_'>"+movieInfo.directors[0].peopleNm+"</a>";
 			    }
-			    tagOutput+="<a href='#'>"+movieNm+"</a>";
-			    tagOutput+="<a href='#'>"+genreNm+"</a>";
+			    tagOutput+="<a href='https://movie.daum.net/search?q="+movieNm+"#tab=all'  target='blank_'>"+movieNm+"</a>";
+			    tagOutput+="<a href='https://movie.daum.net/search?q="+genreNm+"#tab=all'  target='blank_'>"+genreNm+"</a>";
 			    
 			    if(movieInfo.actors.length > 0 ){
 				  for(let i=0; i<movieInfo.actors.length; i++){
-					 tagOutput+="<a href='#'>"+movieInfo.actors[i]['peopleNm']+"</a>";
+					 tagOutput+="<a href='https://movie.daum.net/search?q="+movieInfo.actors[i]['peopleNm']+"#tab=all'  target='blank_'>"+movieInfo.actors[i]['peopleNm']+"</a>";
 				   }
 				}
 			    
