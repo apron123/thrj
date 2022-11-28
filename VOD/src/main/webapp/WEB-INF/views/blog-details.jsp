@@ -108,7 +108,6 @@
 			const movieUrl = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key="+key+"&movieCd="+movieId;
 			
 			fetch(movieUrl).then(res => res.json()).then(function(res){
-				//alert(JSON.stringify(res));
 				let movieInfo=res.movieInfoResult.movieInfo;
 				let prdtYear = movieInfo.prdtYear; //제작연도
 				let genreNm = movieInfo.genres[0].genreNm; //영화장르
@@ -158,7 +157,7 @@
 				
 			    var tagOutput="";
 			    if(movieInfo.directors.length > 0){
-			    	tagOutput+="<a href='#'>"+movieInfo.directors[0].peopleNm+"</a>";
+			    	tagOutput+="<a href='https://movie.daum.net/search?q="+movieInfo.directors[0].peopleNm+"#tab=all'  target='blank_'>"+movieInfo.directors[0].peopleNm+"</a>";
 			    }
 			    tagOutput+="<a href='#'>"+movieNm+"</a>";
 			    tagOutput+="<a href='#'>"+genreNm+"</a>";
