@@ -176,7 +176,7 @@
       <![CDATA[       
            group by  m.movie_seq, m.movie_title, m.movie_img
            order by m.movie_seq desc
-           limit 5
+           limit 7
 		]]>
 	</select>
 	
