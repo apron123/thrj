@@ -104,6 +104,7 @@
 		});
 		
 		function movieInfo(movieId){
+			
 			const movieUrl = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key="+key+"&movieCd="+movieId;
 			
 			fetch(movieUrl).then(res => res.json()).then(function(res){
@@ -119,19 +120,20 @@
 				
 				
 				let showTm = movieInfo.showTm;
-				if(movieInfo.directors.length > 0){
-					let directors = movieInfo.directors[0].peopleNm;
-				}
+				
 				let openDt = movieInfo.openDt;
 				let nationNm = movieInfo.nations[0].nationNm;
-				let watchGradeNm = movieInfo.audits[0]['watchGradeNm'];
+				
 
 				var output = "<li><span>상영시간 :</span>"+showTm+" 분</li>";
 				
 				if(movieInfo.directors.length > 0){
-				  output+="<li><span>감독 :</span> "+directors+"</li>";
+					output+="<li><span>감독 :</span> "+movieInfo.directors[0].peopleNm+"</li>";
 				}
-				output+="<li><span>개봉일 :</span> "+openDt.substr(0,4)+"년 "+openDt.substr(4,2)+"월 "+openDt.substr(6,2)+"일 개봉</li>";
+				
+				if(openDt.length > 0 ){
+					output+="<li><span>개봉일 :</span> "+openDt.substr(0,4)+"년 "+openDt.substr(4,2)+"월 "+openDt.substr(6,2)+"일 개봉</li>";
+				}
 				output+="<li><span>제작국가 :</span> "+nationNm+"</li>";
 				
 				if(movieInfo.actors.length > 0 ){
@@ -144,14 +146,19 @@
 					}
 					+"</li>";
 				}
-				output+="<li><span>심의정보 :</span> "+watchGradeNm+"</li>";
+				
+				if(movieInfo.audits.length > 0){
+				 let watchGradeNm = movieInfo.audits[0]['watchGradeNm'];
+				 output+="<li><span>심의정보 :</span> "+watchGradeNm+"</li>";
+				}
+				
 				output+="<li><span>영화유형 :</span> "+typeNm+"</li>";
 				output+="<li><span>영화장르 :</span> "+genreNm+"</li>";
 				myUl.innerHTML = output;	
 				
 			    var tagOutput="";
 			    if(movieInfo.directors.length > 0){
-			    	tagOutput+="<a href='#'>"+directors+"</a>";
+			    	tagOutput+="<a href='#'>"+movieInfo.directors[0].peopleNm+"</a>";
 			    }
 			    tagOutput+="<a href='#'>"+movieNm+"</a>";
 			    tagOutput+="<a href='#'>"+genreNm+"</a>";
