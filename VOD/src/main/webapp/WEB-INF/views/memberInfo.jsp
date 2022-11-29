@@ -159,7 +159,7 @@
 	}
 	
 	function fn_Delete(){
-		location.href='/deleteMember.do';
+		location.href='${context}/deleteMember.do';
 	}
 	
 	function fn_update(){
