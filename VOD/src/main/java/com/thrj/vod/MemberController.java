@@ -89,9 +89,9 @@ public class MemberController {
 	public ModelAndView deleteMember(HttpServletRequest request, @ModelAttribute Members vo){
 		ModelAndView mv = new ModelAndView();
 		 HttpSession session = request.getSession();
-		 Members userBean=(Members)session.getAttribute("mb_id");
-		 String mb_id = userBean.getMb_id();
+		 String mb_id=(String)session.getAttribute("mb_id");
 		 mapper.deleteMember(mb_id);
+		 session.invalidate();
 		 mv.setViewName("redirect:/index.do");
 	  return mv;
 	}
