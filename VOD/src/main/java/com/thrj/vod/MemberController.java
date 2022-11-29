@@ -1,7 +1,7 @@
 package com.thrj.vod;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.thrj.Entity.Members;
@@ -98,6 +103,8 @@ public class MemberController {
 		 String movie_id=(String)session.getAttribute("mb_id");
 		 Members userBean=mapper.retrieveSessionInfo(movie_id);
 		 mv.addObject("userBean",userBean);
+		Movies detail = movie_mapper.bannerOne();
+		mv.addObject("movies",detail);
 		 mv.setViewName("memberInfo");
 	  return mv;
 	}
@@ -111,7 +118,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/signup.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView createUser(@ModelAttribute Members vo) {	
+	public ModelAndView bannerOne(@ModelAttribute Members vo) {	
 		ModelAndView mv = new ModelAndView();
 		Movies detail = movie_mapper.bannerOne();
 		mv.addObject("movies",detail);
@@ -120,17 +127,42 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value="/member/saveFile.do", method=RequestMethod.POST)
+	@RequestMapping(value="/saveFile.do", method=RequestMethod.POST)
+	@ResponseBody public String saveFile(HttpServletRequest request ) throws IOException {
+		String imgFolder ="\\resources\\memberPhoto\\";
+		String realFolder = request.getRealPath("/")+imgFolder;
+		MultipartHttpServletRequest multipartRequest =  (MultipartHttpServletRequest)request;
+		MultipartFile file = multipartRequest.getFile("imageFile"); //단일 파일 업로드
+		String filename = file.getOriginalFilename();
+		File ufile = new File(realFolder + file.getOriginalFilename());
+		file.transferTo((ufile));
+		return filename;
+	}
+	
+	@RequestMapping(value="/idCheck.do", method=RequestMethod.GET)
 	@ResponseBody
-	public String saveFile(HttpServletRequest request ) throws IOException {
-		//저장할 경로
-		//서버체크 (로컬 / 실제서버)
-		//단일파일업로드
-		//String imgFolder =""; //저장할 경로
-		//String realFolder = ""; //web-inf바로전 까지 저장할 경로
-		//단일 파일경로
-		//String filename = "";//실제파일경로
-		return null;
+	public ResponseEntity<String> idCheck(HttpServletRequest request){
+		String mb_id = request.getParameter("mb_id");
+		Members vo = mapper.retrieveUser(mb_id);
+		String checkMsg = "";
+		
+		if(vo != null){
+			checkMsg = "<font color='red' size='3px;'><i class='fa fa-times'>&nbsp;이미 사용중인 아이디입니다.</i></font>@false";
+		} else {
+			checkMsg = "<font color='green' size='3px;'><i class='fa fa-check'>&nbsp;사용 가능한 아이디입니다.</i></font>@true";
+		}
+		HttpHeaders resHeader = new HttpHeaders();
+		resHeader.add("Content-Type","text/html;charset=UTF-8");
+		ResponseEntity resultMsg = new ResponseEntity<String>(checkMsg, resHeader, HttpStatus.OK);
+		return resultMsg;
+	}
+	
+	@RequestMapping(value="/createMember.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView createMember(@ModelAttribute Members vo){
+		ModelAndView mv = new ModelAndView();
+        mapper.createMember(vo);
+		mv.setViewName("redirect:/login.do");
+		return mv;
 	}
 
 }
