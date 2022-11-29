@@ -44,6 +44,33 @@ class khaiii_morph_analyzer:
                 nouns_list.append(token)
         return nouns_list
 
+def get_recommend_movie(user_input):
+    try:
+        user_input_vec = model.encode(user_input)
+        user_input_vec = np.expand_dims(user_input_vec, axis=0)
+
+        #print('plot_text_emb_index',plot_text_emb_index)
+        plot_text_emb_distances, plot_text_emb_indices = plot_text_emb_index.search(user_input_vec, SEARCH_NUM)
+        #print('plot_text_emb_distances',plot_text_emb_distances)
+        print('--', plot_text_emb_indices[0])
+
+        sel_movie_plot_text = plot_text_emb_df[['movie_title', 'movie_code']].iloc[plot_text_emb_indices[0]]
+        sel_movie_plot_text['distance'] = plot_text_emb_distances[0]
+
+        print('===================== plot_text ======================================')
+        print(type(sel_movie_plot_text))
+        print(sel_movie_plot_text)
+
+    
+        #ret_movies = sel_movie_plot_text.values.tolist()
+        
+        # df to dictionary
+        ret_movies = sel_movie_plot_text.to_dict('records')
+
+        return ret_movies
+
+    except:
+        print("ERROR : ", user_input)
 
 # 메타데이터를 입력 받아 추천영화 출력
 @app.route("/recom_vod", methods=['POST'])
@@ -58,22 +85,24 @@ def recom_vod():
     params = request.get_json()
     #params = request.get_json()
     print('-', params)
-    print(params['input'])
+    
+    input = params['input']
+    #print(input, type(input))
+    user_input = ' '.join(input)
+    print('user input str',user_input)
 
-    movie_cds = ["1234","1234","1234","1234"]
-    '''
-    output
-    {'status': True, 'movie_cd': [1,2,3,4]}
-    '''
-    ret_json = {'status': 'true', 'movie_cds': movie_cds}
-    print(ret_json)
-    return ret_json
+    #input = "겨울 크리스마스 눈"
+    ret = get_recommend_movie(user_input)
+
+
+    return ret 
+
 
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
 
+    parser = argparse.ArgumentParser()
     # 데모 모드 선택
     parser.add_argument('--demo_mode', type=str, default='on') # on, off
 
@@ -97,10 +126,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-
+    print ('\ninit vod recommendation model...')
     model = SentenceTransformer('jhgan/{}'.format(args.model_name))
     model.eval()
-
 
     # 형태소 분석기 선택
     tokenizer_dic = {'mec':Mecab(), 'okt':Okt(), 'kkm':Kkma(), 'kom':Komoran(), 'han':Hannanum(), 'twi':Twitter(), 'kha':khaiii_morph_analyzer()}
@@ -144,8 +172,24 @@ if __name__ == '__main__':
         plot_text_emb_df.to_csv('./output/movie_embedding/{}_{}/plot_text_emb.csv'.format(args.model_name, args.sel_tokenizer), encoding="utf-8-sig")
 
 
+    elif args.demo_mode == 'svc':
+
+        os.makedirs('./output/movie_recommendation/{}_{}'.format(args.model_name, args.sel_tokenizer), exist_ok=True)
+
+        print('loading plot embedding data...')
+        plot_text_emb_df = pd.read_csv('./output/movie_embedding/{}_{}/plot_text_emb.csv'.format(args.model_name, args.sel_tokenizer), index_col=0)
+
+        plot_text_emb_index = faiss.IndexFlatL2(EMB_SIZE)
+        plot_text_emb_index.add(np.ascontiguousarray(plot_text_emb_df.iloc[:, -EMB_SIZE:].values.astype(np.float32)))
+
+        # start service
+        print ('\nstart service...')
+        app.run(host='0.0.0.0', port=8888, debug=True)
+
     elif args.demo_mode == 'on':
         os.makedirs('./output/movie_recommendation/{}_{}'.format(args.model_name, args.sel_tokenizer), exist_ok=True)
+
+        print('loading plot embedding data...')
         plot_text_emb_df = pd.read_csv('./output/movie_embedding/{}_{}/plot_text_emb.csv'.format(args.model_name, args.sel_tokenizer), index_col=0)
 
         plot_text_emb_index = faiss.IndexFlatL2(EMB_SIZE)
