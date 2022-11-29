@@ -50,6 +50,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="index.do"><i class="fa fa-home"></i> Home</a>
+                        <a href="categories.do">영화</a>
                         <span>${movie.movie_title}</span>
                     </div>
                 </div>
