@@ -50,7 +50,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="index.do"><i class="fa fa-home"></i> Home</a>
-                       
+                        <span>${movie.movie_title}</span>
                     </div>
                 </div>
             </div>
