@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.thrj.Entity.Members;
 import com.thrj.Entity.Movies;
+import com.thrj.Mapper.HistoryMapper;
 import com.thrj.Mapper.MemberMapper;
 import com.thrj.Mapper.MovieMapper;
 
@@ -37,6 +38,9 @@ public class MemberController {
 	
 	@Autowired
 	public MovieMapper movie_mapper;
+	
+	@Autowired
+	public HistoryMapper history_mapper;
 	
 	@GetMapping("/login.do")
 	public ModelAndView login(){
@@ -90,9 +94,17 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		 HttpSession session = request.getSession();
 		 String mb_id=(String)session.getAttribute("mb_id");
+		 
+		 //회원 정보 삭제
 		 mapper.deleteMember(mb_id);
+		 //회원댓글삭제
+		 
+		 //회원 history삭제
+		 history_mapper.deleteHistory(mb_id);
+		 
 		 session.invalidate();
 		 mv.setViewName("redirect:/index.do");
+		 
 	  return mv;
 	}
 	
