@@ -103,7 +103,7 @@ public class MemberController {
 		 mapper.deleteMember(mb_id);
 		 
 		 //회원댓글삭제
-		 //comment_mapper.
+		 comment_mapper.deleteComments(mb_id);
 		 
 		 //회원 history삭제
 		 history_mapper.deleteHistory(mb_id);
