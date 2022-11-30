@@ -202,6 +202,7 @@
 	           m.movie_seq as movie_seq
 	         , m.movie_title as movie_title
 	         , m.movie_img as movie_img
+	         , h.history_date as history_date
 	        from movies m,members u,history h
             where m.movie_seq = h.movie_seq
           ]]>
