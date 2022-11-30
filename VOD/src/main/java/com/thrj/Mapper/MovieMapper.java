@@ -15,7 +15,7 @@ public interface MovieMapper {
 	public void raiseLookupCount(int movie_seq);//게시물을 볼경우 count
 	public Movies bannerOne(); //하나만 사용할때
 	public void insertHistorySeq(Movies vo); // 상세페이지 장르별 유사 영화 삽입
-	public List<History> historySeq(String mb_id); //시청 이력 가져오기
+	public List<Movies> historySeq(String mb_id); //시청 이력 가져오기
 	public List<Movies> categorieList(); //카테고리용 영화리스트
 	
 	public List<Movies> bannerList();
