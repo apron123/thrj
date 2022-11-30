@@ -23,4 +23,6 @@ public interface MovieMapper {
 	public List<Paging> getPageList(Paging paging);
 	public void updateStarRating(Movies vo); // 유저 별점 남기기 
 	public List<Movies> movieGenreList(Movies vo); // 상세페이지 장르별 유사 영화 추천 	
+	public List<Movies> movie_typeList(String movieType);  //카테고리별 영화 시퀀스
+	public Movies typeList(int seq);  //카테고리별 영화 리스트
 }

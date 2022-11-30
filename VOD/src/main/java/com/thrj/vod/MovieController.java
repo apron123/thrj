@@ -1,5 +1,6 @@
 package com.thrj.vod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -123,7 +124,7 @@ public class MovieController {
 	}
 	
 	@GetMapping("/categories.do")
-	public String categories(Model model, @ModelAttribute("paging")Paging paging) {
+	public String categories(Model model, @ModelAttribute("paging")Paging paging, HttpServletRequest request, Movies movie) {
 		
 		int totalRowCount = mapper.getTotalRowCount(paging);
 		paging.setTotalRowCount(totalRowCount);
@@ -134,6 +135,17 @@ public class MovieController {
 		
 		List<Movies> list = mapper.categorieList();
 		model.addAttribute("list",list);
+		
+		String movieType = request.getParameter("movie_type");
+		List<Movies> movie_type_list = mapper.movie_typeList(movieType);
+		List<Movies> typeList = new ArrayList<Movies>();
+		
+		for(int i=0; i<movie_type_list.size(); i++) {
+			int seq =movie_type_list.get(i).getMovie_seq();
+			typeList.add(mapper.typeList(seq));
+		}
+		model.addAttribute("typeList",typeList);
+		
 		return "categories";
 	}
 	

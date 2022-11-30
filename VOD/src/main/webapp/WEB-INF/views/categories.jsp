@@ -45,7 +45,7 @@
                     <div class="breadcrumb__links">
                         <a href="index.do"><i class="fa fa-home"></i> Home</a>
                         <a href="categories.do">Categories</a>
-                        <span>Romance</span>
+                        <span>${movie_type}</span>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                             <div class="row">
                                 <div class="col-lg-8 col-md-8 col-sm-6">
                                     <div class="section-title">
-                                        <h4>Romance</h4>
+                                        <h4></h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -79,6 +79,26 @@
                             </div>
                         </div>
                         <div class="row">
+                        	<c:choose>
+                        	<c:when test="${param.movie_type != null}">
+                        		<c:forEach items="${typeList}" var="movies" varStatus="i" begin="${paging.firstRow}" end="${paging.lastRow}" step="1">
+	                            <div class="col-lg-4 col-md-6 col-sm-6">
+	                                <div class="product__item">
+	                                    <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
+	                                    </div>
+	                                    <div class="product__item__text">
+	                                        <ul>
+	                                            <li>Movie</li>
+	                                        </ul>
+	                                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
+	                                    </div>
+	                                </div>
+	                            </div>
+                            </c:forEach>
+                        	</c:when>
+                        	<c:otherwise>
                         	<c:forEach items="${list}" var="movies" varStatus="i" begin="${paging.firstRow}" end="${paging.lastRow}" step="1">
 	                            <div class="col-lg-4 col-md-6 col-sm-6">
 	                                <div class="product__item">
@@ -95,6 +115,8 @@
 	                                </div>
 	                            </div>
                             </c:forEach>
+                            </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                     <div class="product__pagination">

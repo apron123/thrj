@@ -61,6 +61,40 @@
 	     ]]>
 	</select>
 
+	<select id="movie_typeList" resultType="com.thrj.Entity.Movies">
+	    <![CDATA[   
+	    select 
+	      movie_seq
+	    from movies
+	    where movie_type like concat('%', #{movie_type}, '%')
+	    order by movie_cnt desc
+ 	   ]]>
+	</select>
+	
+	<select id="typeList" parameterType="int" resultType="com.thrj.Entity.Movies">
+	    <![CDATA[
+	      select 
+	     	m.movie_seq as movie_seq
+	      , m.movie_title as movie_title
+	      , m.movie_content as movie_content
+	      , m.movie_img as movie_img
+	      , m.movie_type as movie_type
+	      , m.movie_open_date as movie_open_date
+	      , m.movie_rating as movie_rating
+	      , m.movie_runtime as movie_runtime
+	      , m.movie_actor as movie_actor
+	      , m.movie_country as movie_country
+	      , m.admin_id as admin_id
+	      , m.movie_director as movie_director
+	      , m.movie_cnt as movie_cnt
+	      , m.movie_participate as movie_participate
+	      , count(c.cmt_seq) as cmt_seq
+	     from movies m,movie_comments c
+	     where m.movie_seq=#{seq}
+	     order by m.movie_cnt desc
+	     ]]>
+	</select>
+	
 	<!--Similar Genre List -->
 	<select id="movieGenreList" parameterType="com.thrj.Entity.Movies" resultType="com.thrj.Entity.Movies">
    	 <![CDATA[   
