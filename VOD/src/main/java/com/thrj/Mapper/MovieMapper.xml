@@ -204,14 +204,12 @@
 	         , m.movie_img as movie_img
 	        from movies m,members u,history h
             where m.movie_seq = h.movie_seq
-            and u.mb_id = h.mb_id
           ]]>
 		<if test='mb_id != null and !"".equals(mb_id)'>
 			and h.mb_id = #{mb_id}
 		</if>
       <![CDATA[       
-           group by  m.movie_seq, m.movie_title, m.movie_img
-           order by m.movie_seq desc
+           order by h.history_date desc
            limit 4
 		]]>
 	</select>

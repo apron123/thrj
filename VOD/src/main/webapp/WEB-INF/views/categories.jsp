@@ -45,7 +45,7 @@
                     <div class="breadcrumb__links">
                         <a href="index.do"><i class="fa fa-home"></i> Home</a>
                         <a href="categories.do">Categories</a>
-                        <span>${movie_type}</span>
+                        <span>${param.movie_type}</span>
                     </div>
                 </div>
             </div>
