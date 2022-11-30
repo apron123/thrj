@@ -197,21 +197,24 @@
 	<!-- 시청한 history  -->
 	<select id="historySeq" parameterType="string" resultType="com.thrj.Entity.Movies">
 	      <![CDATA[
-	    	 select
-   	   			m.movie_seq as movie_seq
-	    	  , m.movie_title as movie_title
-	    	  , m.movie_img as movie_img
-			from movies m
-  			where m.movie_seq  in (
-   			select movie_seq from history h
-          ]]>
-		<if test='mb_id != null and !"".equals(mb_id)'>
-			where h.mb_id = #{mb_id}
-		</if>
-      <![CDATA[       
-		   order by h.history_date desc
-   			)
-           limit 4
+	    	SELECT 
+ 				Hs.movie_seq as movie_seq
+				, date_format(Hs.history_date, '%Y-%m-%d') as history_date
+				, Mv.movie_title as movie_title
+				, (select m.mb_name  from members m  where m.mb_id  = Hs.mb_id) as mb_name
+				, Hs.mb_id as mb_id
+				, Mv.movie_img as movie_img
+		   FROM history as Hs
+			LEFT JOIN movies as Mv
+			  ON Hs.movie_seq = Mv.movie_seq
+	    	]]>	  
+		   <if test='mb_id != null and !"".equals(mb_id)'>
+			where Hs.mb_id = #{mb_id}
+			</if>
+		<![CDATA[	
+		group by Hs.movie_seq,date_format(Hs.history_date, '%Y-%m-%d'),Mv.movie_title,Hs.mb_id
+		order by date_format(Hs.history_date, '%Y-%m-%d') desc
+		limit 4
 		]]>
 	</select>
 	
