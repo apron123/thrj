@@ -149,7 +149,6 @@ public class MovieController {
 		HttpSession session = request.getSession();
 		String mb_id=(String)session.getAttribute("mb_id");
 		List<Movies> history_seq = mapper.historySeq(mb_id);
-		System.out.println("history_seq: "+history_seq.toString());
 		model.addAttribute("history_seq",history_seq);
 		
 		return "categories";
