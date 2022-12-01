@@ -130,13 +130,18 @@ public class MovieController {
 		paging.setTotalRowCount(totalRowCount);
 		paging.pageSetting();
 		
-		List<Paging> getPageList = mapper.getPageList(paging);
+		String movieType = request.getParameter("movie_type");
+		int totalRowCount_category = mapper.getTotalRowCount_1(movieType);
+		paging.setTotalRowCount_1(totalRowCount_category);
+		paging.pageSetting_1();
+		
+//		List<Paging> getPageList = mapper.getPageList(paging);
 		model.addAttribute("Paging", paging);
 		
 		List<Movies> list = mapper.categorieList();
 		model.addAttribute("list",list);
 		
-		String movieType = request.getParameter("movie_type");
+//		String movieType = request.getParameter("movie_type");
 		List<Movies> movie_type_list = mapper.movie_typeList(movieType);
 		List<Movies> typeList = new ArrayList<Movies>();
 		
