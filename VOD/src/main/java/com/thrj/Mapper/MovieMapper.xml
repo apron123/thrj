@@ -198,7 +198,7 @@
 	</update>
 
 
-	<!-- 시청한 history  -->
+<!-- 시청한 history  -->
 	<select id="historySeq" parameterType="string" resultType="com.thrj.Entity.Movies">
 	      <![CDATA[
 	    	SELECT 
