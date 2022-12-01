@@ -82,8 +82,8 @@
 	        };
 	    $.datepicker.setDefaults($.datepicker.regional['ko']);
 		$("#dateSelect").datepicker();
-		 $("#dateSelect").val(prettyDate); 
-		 $('#dateSelect').datepicker("option", "maxDate",prettyDate);
+		 $("#dateSelect").val(yesterdate); 
+		 $('#dateSelect').datepicker("option", "maxDate",yesterdate);
 		 $('#dateSelect').on("change", function() {
 			 $("#rowproduct").empty();
 			 showList(this.value);
