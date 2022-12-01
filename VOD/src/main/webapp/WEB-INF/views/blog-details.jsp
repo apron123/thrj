@@ -144,10 +144,10 @@
 							
 							if( i < movieInfo.actors.length-1){
 								
-								if(i<4){
+								if(i<2){
 									output+=" , ";
 								} else {
-									output+=" 외&nbsp;"+(movieInfo.actors.length-4)+" 명";
+									output+=" 외&nbsp;"+(movieInfo.actors.length-3)+" 명";
 									break;
 								}
 								
