@@ -213,7 +213,7 @@
 
 #cancle-btn {
 	font-size: 13px;
-	color: #ffffff;
+  	color: #ffffff;
 	font-weight: 700px;
 	border: none;
 	border-radius: 2px;
