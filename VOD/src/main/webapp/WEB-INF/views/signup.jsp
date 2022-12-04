@@ -99,15 +99,13 @@
 						</form>
 						<br /> <br />
 						<button type="button" class="site-btn" onclick="fn_back()">취소하기</button>
-						<button type="button" id="cancle-btn" class="btn btn-success"
-							onclick="fn_save()">등록하기</button>
+						<button type="button" id="cancle-btn" class="btn btn-success" onclick="fn_save()">등록하기</button>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="login__social__links">
 						<h3>사진</h3>
-						<img id="pic" style="margin-left: 15px;" height="180px"
-							width="150px" src="${memberProfile}/memberProfile.jpg"><br />
+						<img id="pic" style="margin-left: 15px;" height="180px" width="200px" src="${memberProfile}/memberProfile.jpg"><br />
 						<div class="col-md-6"></div>
 					</div>
 					<input type="hidden" id="flag" name="flag" value="false">
@@ -115,9 +113,10 @@
 						enctype="multipart/form-data" role="form">
 						<label class="control-label col-md-2 col-xs-12"></label>
 						<div class="col-md-6">
-							<input class="form-control btn btn-success" type="file" id="imageFile"
-								name="imageFile" onchange="fn_upload()" /> <input type="hidden"
-								id="imageFolder" name="imageFolder" value="userImg">
+							<label for="imageFile">
+								<div class="btn-upload btn btn-success" id="btn-upload">파일 업로드하기</div>
+							</label> <input class="form-control btn btn-success" type="file" id="imageFile" name="imageFile" onchange="fn_upload()" /> 
+							<input type="hidden" id="imageFolder" name="imageFolder" value="userImg">
 						</div>
 					</form>
 				</div>
@@ -224,6 +223,28 @@
 	padding: 12px 30px;
 }
 
+#btn-upload {
+  width: 200px;
+  height: 50px;
+  color: #ffffff;
+  border: 1px solid rgb(77,77,77);
+  text-transform: uppercase;
+  border-radius: 2px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:10px;
+
+}
+#btn-upload:hover{
+    background: rgb(77,77,77);
+    color: #fff;
+}
+
+}
 @media ( prefers-reduced-motion :reduce) {
 	.form-control {
 		transition: none
@@ -259,7 +280,6 @@ input[type=checkbox] {
 }
 
 input[type="checkbox"]::after {
-	
 	border-width: 0 2px 2px 0;
 	content: '';
 	display: none;
@@ -279,18 +299,18 @@ input[type="checkbox"]:checked::after {
 	display: block;
 }
 
-#ajaxform{
-margin-left: 28px;
-width:100%;
+#ajaxform {
+	margin-left: 28px;
+	width: 100%;
 }
-#imageFile{
-background:#0b0c2a;
-border:none;
-border-radius:2px;
-letter-spacing:2px;
-text-transform: uppercase;
-display:inline-block;
 
+#imageFile {
+	background: #0b0c2a;
+	border: none;
+	border-radius: 2px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	display: none;
 }
 </style>
 </body>

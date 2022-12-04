@@ -93,13 +93,16 @@
 				<div class="col-lg-3">
 					<div class="login__social__links">
 						<h3>사진</h3>
-						<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${memberProfile}/memberProfile.jpg"><br />
+						<img id="pic" style="margin-left: 15px;" height="180px" width="200px" src="${memberProfile}/memberProfile.jpg"><br />
 						<div class="col-md-6"></div>
 					</div>
 					<input type="hidden" id="flag" name="flag" value="false">
 					<form id="ajaxform" action="${context}/saveFile.do" method="post" enctype="multipart/form-data" role="form">
 						<label class="control-label col-md-2 col-xs-12"></label>
 						<div class="col-md-6">
+						<label for="imageFile">
+							<div class="btn-upload btn btn-success" id="btn-upload">파일 업로드하기</div>
+						</label> 
 							<input class="form-control" type="file" id="imageFile" name="imageFile" onchange="fn_upload()" /> 
 							<input type="hidden" id="imageFolder" name="imageFolder" value="userImg">
 						</div>
@@ -225,6 +228,28 @@
 	padding: 12px 30px;
 }
 
+#btn-upload {
+  width: 200px;
+  height: 50px;
+  color: #ffffff;
+  border: 1px solid rgb(77,77,77);
+  text-transform: uppercase;
+  border-radius: 2px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:10px;
+
+}
+#btn-upload:hover{
+    background: rgb(77,77,77);
+    color: #fff;
+}
+
+}
 @media ( prefers-reduced-motion :reduce) {
 	.form-control {
 		transition: none
@@ -290,7 +315,7 @@ input[type="checkbox"]:checked::after {
 	border-radius: 2px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
-	display: inline-block;
+	display: none;
 }
 </style>
 </body>
