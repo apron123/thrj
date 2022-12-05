@@ -190,7 +190,6 @@
 										for="rate4">★</label>
 									<input type="radio" name="reviewStar" value="1" id="rate5"><label
 										for="rate5">★</label>
-									<!-- <span class="text-bold">별점을 선택해주세요</span> -->
 								</fieldset>
 							</div>	
 						

@@ -113,11 +113,12 @@
 	      , movie_director
 	      , movie_cnt
 	      , movie_participate
+	      , movie_keywords
 	    from movies
 	    where movie_type like concat('%', #{movie_type}, '%')
 	    and movie_seq != #{movie_seq}
 	    order by movie_seq desc
-	    LIMIT 0,4
+	    LIMIT 4
  	   ]]>
 	</select>
 
