@@ -12,6 +12,17 @@ from sentence_transformers import SentenceTransformer
 app = Flask(__name__)
 CORS(app)
 
+# 사전 훈련된 모델 불러옴
+model = SentenceTransformer('jhgan/ko-sroberta-multitask')
+model.eval()
+
+# 영화 키워드 데이터 불러오기
+movie_keywords_df = pd.read_csv('./movieData_keyword.csv')
+movie_keywords_df = movie_keywords_df[["movie_seq", "movie_keywords"]]
+
+# 영화줄거리 임베딩 데이터 불러오기
+movie_content_emb_df = pd.read_csv('./movie_content_emb.csv')
+
 @app.route("/recom_vod", methods=['POST'])
 def recom_vod() :
 
@@ -23,19 +34,11 @@ def recom_vod() :
     movie_seq = int(json_movie_seq['movie_seq'])
     print(type(movie_seq))
 
-    # 사전 훈련된 모델 불러옴
-    model = SentenceTransformer('jhgan/ko-sroberta-multitask')
-    model.eval()
-
-    # 영화 키워드 데이터 불러오기
-    movie_keywords_df = pd.read_csv('./movieData_keyword.csv')
-    movie_keywords_df = movie_keywords_df[["movie_seq", "movie_keywords"]]
     # 영화시퀀스에 해당하는 키워드 추출
     movie_keywords = movie_keywords_df[movie_keywords_df["movie_seq"]== movie_seq]["movie_keywords"].item()
     movie_keywords = movie_keywords.replace(',', " ")
+    print(movie_keywords)
     
-    # 영화줄거리 임베딩 데이터 불러오기
-    movie_content_emb_df = pd.read_csv('./movie_content_emb.csv')
     # 벡터 차원정의
     movie_content_emb_index = faiss.IndexFlatL2(768)
     # 영화별 줄거리 벡터 유사도 계산
