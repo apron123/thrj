@@ -180,7 +180,10 @@
 	</select>
 	
 	<select id="getTotalRowCount_1" parameterType="string" resultType="int">
-		select count(*) from movies where movie_type like concat('%', #{movie_type}, '%')
+		select count(*) from movies
+		<if test='movie_type != null'>
+		where movie_type like concat('%', #{movie_type}, '%')
+		</if>
 	</select>
 
 	<select id="getPageList" resultType="com.thrj.Entity.Movies" parameterType="com.thrj.Entity.Paging">
