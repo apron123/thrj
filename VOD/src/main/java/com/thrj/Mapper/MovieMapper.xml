@@ -51,7 +51,7 @@
 	     ,m.movie_runtime,m.movie_actor,m.movie_country,m.admin_id
 	     ,m.movie_director,m.movie_cnt,m.movie_participate
 	     order by m.movie_seq desc
-	     limit 3
+	     limit 6
 	     ]]>
 	</select>
 	

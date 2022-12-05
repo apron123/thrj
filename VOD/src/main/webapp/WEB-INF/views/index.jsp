@@ -41,7 +41,7 @@
         <div class="container">
             <div class="hero__slider owl-carousel">
             
-            <c:forEach items="${list}" var="movies" varStatus="i" begin="0" end="2" step="1">
+            <c:forEach items="${list1}" var="movies" varStatus="i" begin="0" end="2" step="1">
                <div class="hero__items set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
                     <div class="row">
                         <div class="col-lg-6">
@@ -70,7 +70,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>Ranking</h4>
+                                    <h4>VOD 추천</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -81,7 +81,7 @@
                         </div>
                         <div class="row">
                         
-                        <c:forEach items="${list1}" var="movies" varStatus="i" begin="0" end="2" step="1">
+                        <c:forEach items="${list}" var="movies">
                                <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div style="cursor: pointer;" onclick="location.href='animeDetails.do?movie_seq=${movies.movie_seq}';">
                                    <div class="product__item">
@@ -100,40 +100,6 @@
                                </div>
                             </c:forEach>
                             
-                        </div>
-                    </div>
-                    <div class="popular__product">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <div class="section-title">
-                                    <h4>VOD 추천</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="categories.do" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                     <c:forEach items="${list}" var="movies">
-                               <div class="col-lg-4 col-md-6 col-sm-6">
-                               <div style="cursor: pointer;" onclick="location.href='animeDetails.do?movie_seq=${movies.movie_seq}';">
-                                   <div class="product__item">
-                                       <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
-                                           <div class="comment"><i class="fa fa-comments"></i>&nbsp; ${movies.cmt_seq}</div>
-                                           <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
-                                       </div>
-                                       <div class="product__item__text">
-                                           <ul>
-                                               <li>Movie</li>
-                                           </ul>
-                                           <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
-                                       </div>
-                                   </div>
-                                   </div>
-                               </div>
-                       </c:forEach>
                         </div>
                     </div>
                 </div>
