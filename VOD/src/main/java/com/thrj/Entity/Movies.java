@@ -20,7 +20,7 @@ public class Movies {
 	@NonNull private String movie_img;                 // 영화이미지
 	@NonNull private String movie_type;                // 영화줄거리
 	@NonNull private String movie_open_date;           // 영화개봉날짜           
-	@NonNull private int movie_rating;              // 영화점수
+	@NonNull private int movie_rating;                 // 영화점수
 	@NonNull private String movie_runtime;             // 상영시간
 	@NonNull private String movie_actor;               // 영화 출연배우
 	@NonNull private String movie_country;             // 영화 제작국가
