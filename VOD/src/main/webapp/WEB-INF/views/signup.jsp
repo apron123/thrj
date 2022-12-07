@@ -183,8 +183,16 @@
 				success : function(data) {
 					data = data.replace(/"/gi, "");
 					var imageUrl = "${context}/resources/memberPhoto/" + data;
-					$("#pic").attr("src", imageUrl);
-					$("#userImage").val(data);
+					
+					if(checkFileName(data) == false ){
+						$("#pic").attr("src", imageUrl);
+						$("#userImage").val(data);
+					} else {
+						imageUrl="${memberProfile}/memberProfile.jpg";
+						$("#pic").attr("src", imageUrl);
+						$("#userImage").val("memberProfile.jpg");
+					} 
+					
 				},
 				error : function(xhr, status, error) {
 					alert(error);
@@ -195,6 +203,12 @@
 		function fn_back() {
 			history.back();
 		}
+		
+		function checkFileName(str){
+			var pattern =   /[\{\}\/?,;:|*~`!^\+<>@\#$%&\\\=\'\"]/gi;
+		    return pattern.test(str);
+		}
+		
 	</script>
 
 	<style>
