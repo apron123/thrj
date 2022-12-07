@@ -126,12 +126,10 @@ public class MovieController {
 	@GetMapping("/categories.do")
 	public String categories(Model model, @ModelAttribute("paging")Paging paging, HttpServletRequest request, Movies movie) {
 		
-		int totalRowCount = mapper.getTotalRowCount(paging);
+		String movieType = request.getParameter("movie_type");
+		int totalRowCount = mapper.getTotalRowCount(movieType);
 		paging.setTotalRowCount(totalRowCount);
 		
-		String movieType = request.getParameter("movie_type");
-		int totalRowCount_category = mapper.getTotalRowCount_1(movieType);
-		paging.setTotalRowCount(totalRowCount_category);
 		paging.pageSetting();
 		
 		model.addAttribute("Paging", paging);
@@ -139,7 +137,6 @@ public class MovieController {
 		List<Movies> list = mapper.categorieList();
 		model.addAttribute("list",list);
 		
-//		String movieType = request.getParameter("movie_type");
 		List<Movies> movie_type_list = mapper.movie_typeList(movieType);
 		List<Movies> typeList = new ArrayList<Movies>();
 		
