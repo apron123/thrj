@@ -10,7 +10,7 @@
 	    			movie_seq
 	    		  , movie_title
 	    		  , movie_content
-	    		  , replace(movie_img,'.jpg','') as movie_img
+	    		  , replace(replace(movie_img,' ','%20'),'.jpg','') as movie_img
 	    		  , movie_type
 	    		  , movie_open_date
 	    		  , movie_rating
@@ -21,7 +21,8 @@
 	    		  , movie_director
 	    	      , movie_cnt
 	    		  , movie_participate
-	    		from movies where movie_seq = #{movie_seq}
+	    		from movies 
+	    		where movie_seq = #{movie_seq}
 	    	]]>
 	</select>
 
@@ -32,7 +33,7 @@
 	     	m.movie_seq as movie_seq
 	      , m.movie_title as movie_title
 	      , m.movie_content as movie_content
-	      , replace(m.movie_img,'.jpg','') as movie_img
+	      , replace(replace(m.movie_img,' ','%20'),'.jpg','') as movie_img
 	      , m.movie_type as movie_type
 	      , m.movie_open_date as movie_open_date
 	      , m.movie_rating as movie_rating
@@ -77,7 +78,7 @@
 	     	m.movie_seq as movie_seq
 	      , m.movie_title as movie_title
 	      , m.movie_content as movie_content
-	      , replace(m.movie_img,'.jpg','') as movie_img
+	      , replace(replace(m.movie_img,' ','%20'),'.jpg','') as movie_img
 	      , m.movie_type as movie_type
 	      , m.movie_open_date as movie_open_date
 	      , m.movie_rating as movie_rating
@@ -102,7 +103,7 @@
 	      movie_seq
 	      , movie_title
 	      , movie_content
-	      , replace(movie_img,'.jpg','') as movie_img
+	      , replace(replace(movie_img,' ','%20'),'.jpg','') as movie_img
 	      , movie_type
 	      , movie_open_date
 	      , movie_rating
@@ -129,7 +130,7 @@
 	     	m.movie_seq as movie_seq
 	      , m.movie_title as movie_title
 	      , m.movie_content as movie_content
-	      , replace(m.movie_img,'.jpg','') as movie_img
+	      , replace(replace(m.movie_img,' ','%20'),'.jpg','') as movie_img
 	      , m.movie_type as movie_type
 	      , m.movie_open_date as movie_open_date
 	      , m.movie_rating as movie_rating
@@ -168,7 +169,7 @@
 	     movie_seq
 	     , movie_title
 	     , movie_content
-	     , replace(movie_img,'.jpg','') as movie_img
+	     , replace(replace(movie_img,' ','%20'),'.jpg','') as movie_img
       from movies 
       order by movie_cnt desc
 	  limit 1
@@ -206,7 +207,7 @@
  				Hs.movie_seq as movie_seq
 				, date_format(Hs.history_date, '%Y-%m-%d') as history_date
 				, Mv.movie_title as movie_title
-				, replace(Mv.movie_img,'.jpg','') as movie_img
+				, replace(replace(Mv.movie_img,' ','%20'),'.jpg','') as movie_img
 		   FROM history as Hs
 			LEFT JOIN movies as Mv
 			  ON Hs.movie_seq = Mv.movie_seq

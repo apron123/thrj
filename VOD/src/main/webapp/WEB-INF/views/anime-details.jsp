@@ -65,7 +65,7 @@
             <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="${imgUrl}/${movie.movie_img} ">
+                        <div class="anime__details__pic set-bg" data-setbg="${imgUrl}/${movie.movie_img}.jpg">
                             <div class="comment"><i class="fa fa-comments"></i>&nbsp;${CommentsCnt}</div>
                             <div class="view"><i class="fa fa-eye"></i>&nbsp;${movie.movie_cnt}</div>
                             
