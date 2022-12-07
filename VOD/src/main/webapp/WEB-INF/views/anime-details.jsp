@@ -208,9 +208,9 @@
                             <div class="section-title">
                                 <h5>you might like...</h5>
                             </div>
-                            <c:forEach items="${list_genre}" var="movies">
+                            <c:forEach items="${recom_vod}" var="movies">
                             <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.jpg">
-                                 <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
+                                 <h5><a onclick="seqClick(${movies.movie_seq})" href="#Redirect">${movies.movie_title}</a></h5>
                             </div>
                             </c:forEach>
                         </div>
@@ -289,7 +289,40 @@
 			}
 		});
         }});
-         
+        
+        
+        function seqClick(seq) {
+    		console.log(seq)
+    		$.ajax({
+    			type : "post",
+    			url : "http://127.0.0.1:5000/recom_vod",
+    			data : JSON.stringify({"movie_seq":seq}),
+    			dataType: "JSON",
+    			contentType: "application/json; charset=utf-8",
+    			timeout: 4000,
+    			success : recomVod,
+    			error : function(e){
+    				console.log(e);
+    			}
+    		});
+    		
+    		function recomVod(data) {
+    			console.log(data)
+    			$.ajax({
+    				
+    				url : "recomVod.do",
+    	  			type : "POST",
+    	  			data : data,
+    	  			success : recom,			
+    	  			error : recom
+    			});
+    		};
+    		
+     		function recom() {
+    			location.href = "animeDetails.do?movie_seq="+seq;
+    		};
+    	}
+
     </script>
     </body>
 

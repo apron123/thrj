@@ -259,5 +259,21 @@
 	    select * from history
 	    where mb_id=#{mb_id}
 	</select>
+	
+	<select id="recomVod" resultType="com.thrj.Entity.Movies">
+		<![CDATA[select *
+		from movies
+		where movie_seq in]]>
+	    <foreach collection="array" item="movie_seq_array" open="(" close=")" separator=",">
+        #{movie_seq_array}
+    	</foreach>
+    	order by field(movie_seq,
+  		<foreach collection="array" item="movie_seq_array" open="" close=")" separator=",">
+        #{movie_seq_array}
+    	</foreach>
+	</select>
+	
+	
+	
 
 </mapper>

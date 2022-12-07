@@ -49,7 +49,7 @@
                                 <div class="label">${movies.movie_type}</div>
                                 <h2>${movies.movie_title}</h2>
                                 <p></p>
-                                <a href="animeDetails.do?movie_seq=${movies.movie_seq}"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                <a onclick="seqClick(${movies.movie_seq})" href="#Redirect"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                                            <ul>
                                                <li>Movie</li>
                                            </ul>
-                                           <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
+                                           <h5><a onclick="seqClick(${movies.movie_seq})" href="#Redirect">${movies.movie_title}</a></h5>
                                        </div>
                                    </div>
                                </div>
@@ -110,10 +110,10 @@
                                 <h5>시청목록</h5></div>
                        <c:forEach items="${history_seq}" var="movies" >
 	                      	<div class="filter__gallery">
-	                      	<a href="animeDetails.do?movie_seq=${movies.movie_seq}">
+	                      	<a onclick="seqClick(${movies.movie_seq})" href="#Redirect">
 		                        <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.jpg">
-		                        <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
-		                        <h5>${movies.movie_title}</h5>
+			                        <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
+			                        <h5>${movies.movie_title}</h5>
 		                        </div>
 		                     </a>   
 	                        </div>
@@ -141,6 +141,44 @@
 <script src="resources/js/jquery.slicknav.js"></script>
 <script src="resources/js/owl.carousel.min.js"></script>
 <script src="resources/js/main.js"></script>
+<script type="text/javascript">
+	/* 클릭시 flask로 movie_seq 값 전송 */
+	function seqClick(seq) {
+		console.log(seq)
+		$.ajax({
+			type : "post",
+			url : "http://127.0.0.1:5000/recom_vod",
+			data : JSON.stringify({"movie_seq":seq}),
+			dataType: "JSON",
+			contentType: "application/json; charset=utf-8",
+			timeout: 4000,
+			success : recomVod,
+			error : function(e){
+				console.log(e);
+			}
+		});
+		/* 성공시 컨트롤러로 movie_seq 값(array) 이동 */
+		function recomVod(data) {
+			console.log(data)
+			$.ajax({
+				
+				url : "recomVod.do",
+	  			type : "POST",
+	  			data : data,
+	  			success : recom,			
+	  			error : recom
+			});
+		};
+		/* 성공시 get방식  이동 */
+ 		function recom() {
+			location.href = "animeDetails.do?movie_seq="+seq;
+		};
+	}
+	
+</script>
+
+
+
 </body>
 
 </html>
