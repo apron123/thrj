@@ -146,10 +146,6 @@
 			var userImage = '${userBean.mb_profile}';
 			userImage = userImage.replace(/"/gi, "");
 			
-			if(userImage == "" || userImage=="???.png"){
-				userImage ="admin.png";
-			}
-			
 			$("#pic").attr("src",'${context}/resources/memberPhoto/' + userImage);
 			$("#userImage").val(userImage);
 
