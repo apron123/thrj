@@ -196,12 +196,6 @@
 		}
 		
 		function checkFileName(str){
-			
-			var ext =  str.split('.').pop().toLowerCase();
-		    if($.inArray(ext, ['bmp' , 'hwp',  'pdf', 'png', 'xls', 'zip', 'pptx', 'xlsx', 'jpeg', 'doc', 'gif']) == -1) {
-		 		alert(ext+' 파일은 업로드 하실 수 없습니다.');
-		    }
-			
 			var pattern =   /[\{\}\/?,;:|*~`!^\+<>@\#$%&\\\=\'\"]/gi;
 		    return pattern.test(str);
 		}
