@@ -10,7 +10,7 @@
 	    			movie_seq
 	    		  , movie_title
 	    		  , movie_content
-	    		  , movie_img
+	    		  , replace(movie_img,'.jpg','') as movie_img
 	    		  , movie_type
 	    		  , movie_open_date
 	    		  , movie_rating
@@ -32,7 +32,7 @@
 	     	m.movie_seq as movie_seq
 	      , m.movie_title as movie_title
 	      , m.movie_content as movie_content
-	      , m.movie_img as movie_img
+	      , replace(m.movie_img,'.jpg','') as movie_img
 	      , m.movie_type as movie_type
 	      , m.movie_open_date as movie_open_date
 	      , m.movie_rating as movie_rating
@@ -77,7 +77,7 @@
 	     	m.movie_seq as movie_seq
 	      , m.movie_title as movie_title
 	      , m.movie_content as movie_content
-	      , m.movie_img as movie_img
+	      , replace(m.movie_img,'.jpg','') as movie_img
 	      , m.movie_type as movie_type
 	      , m.movie_open_date as movie_open_date
 	      , m.movie_rating as movie_rating
@@ -102,7 +102,7 @@
 	      movie_seq
 	      , movie_title
 	      , movie_content
-	      , movie_img
+	      , replace(movie_img,'.jpg','') as movie_img
 	      , movie_type
 	      , movie_open_date
 	      , movie_rating
@@ -129,7 +129,7 @@
 	     	m.movie_seq as movie_seq
 	      , m.movie_title as movie_title
 	      , m.movie_content as movie_content
-	      , m.movie_img as movie_img
+	      , replace(m.movie_img,'.jpg','') as movie_img
 	      , m.movie_type as movie_type
 	      , m.movie_open_date as movie_open_date
 	      , m.movie_rating as movie_rating
@@ -168,7 +168,7 @@
 	     movie_seq
 	     , movie_title
 	     , movie_content
-	     , movie_img
+	     , replace(movie_img,'.jpg','') as movie_img
       from movies 
       order by movie_cnt desc
 	  limit 1
@@ -206,7 +206,7 @@
  				Hs.movie_seq as movie_seq
 				, date_format(Hs.history_date, '%Y-%m-%d') as history_date
 				, Mv.movie_title as movie_title
-				, Mv.movie_img as movie_img
+				, replace(Mv.movie_img,'.jpg','') as movie_img
 		   FROM history as Hs
 			LEFT JOIN movies as Mv
 			  ON Hs.movie_seq = Mv.movie_seq

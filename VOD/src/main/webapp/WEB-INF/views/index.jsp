@@ -42,7 +42,7 @@
             <div class="hero__slider owl-carousel">
             
             <c:forEach items="${list1}" var="movies" varStatus="i" begin="0" end="2" step="1">
-               <div class="hero__items set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+               <div class="hero__items set-bg" data-setbg="${imgUrl}/${movies.movie_img}.jpg">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -85,7 +85,7 @@
                                <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div style="cursor: pointer;" onclick="location.href='animeDetails.do?movie_seq=${movies.movie_seq}';">
                                    <div class="product__item">
-                                      <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+                                      <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.jpg">
                                           <div class="comment"><i class="fa fa-comments"></i>&nbsp; ${movies.cmt_seq}</div>
                                           <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
                                        </div>
@@ -110,7 +110,7 @@
                                 <h5>시청목록</h5></div>
                        <c:forEach items="${history_seq}" var="movies" >
 	                      	<div class="filter__gallery">
-		                        <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+		                        <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.jpg">
 		                        <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
 		                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
 		                        </div>

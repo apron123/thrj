@@ -65,7 +65,7 @@
             <div class="anime__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="${imgUrl}/${movie.movie_img}.png">
+                        <div class="anime__details__pic set-bg" data-setbg="${imgUrl}/${movie.movie_img} ">
                             <div class="comment"><i class="fa fa-comments"></i>&nbsp;${CommentsCnt}</div>
                             <div class="view"><i class="fa fa-eye"></i>&nbsp;${movie.movie_cnt}</div>
                             
@@ -209,7 +209,7 @@
                                 <h5>you might like...</h5>
                             </div>
                             <c:forEach items="${list_genre}" var="movies">
-                            <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+                            <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img} ">
                                  <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
                             </div>
                             </c:forEach>
