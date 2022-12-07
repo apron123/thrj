@@ -129,16 +129,7 @@
 	<%@ include file="./footer.jsp"%>
 
 	<!-- Search model Begin -->
-	<div class="search-model">
-		<div class="h-100 d-flex align-items-center justify-content-center">
-			<div class="search-close-switch">
-				<i class="icon_close"></i>
-			</div>
-			<form class="search-model-form">
-				<input type="text" id="search-input" placeholder="Search here.....">
-			</form>
-		</div>
-	</div>
+	<%@ include file="./search.jsp"%>
 	<!-- Search model end -->
 
 	<!-- Js Plugins -->
@@ -205,6 +196,12 @@
 		}
 		
 		function checkFileName(str){
+			
+			var ext =  str.split('.').pop().toLowerCase();
+		    if($.inArray(ext, ['bmp' , 'hwp',  'pdf', 'png', 'xls', 'zip', 'pptx', 'xlsx', 'jpeg', 'doc', 'gif']) == -1) {
+		 		alert(ext+' 파일은 업로드 하실 수 없습니다.');
+		    }
+			
 			var pattern =   /[\{\}\/?,;:|*~`!^\+<>@\#$%&\\\=\'\"]/gi;
 		    return pattern.test(str);
 		}
