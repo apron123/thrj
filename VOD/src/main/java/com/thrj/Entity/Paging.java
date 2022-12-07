@@ -24,8 +24,6 @@ public class Paging {
 	private int firstPage;			// 페이지 리스트 시작번호
 	private int lastPage;			// 페이지 리스트 마지막 번호
 	
-	
-	
 	public void pageSetting() {
 		
 		totalPageCount = (totalRowCount-1)/rowPerPage+1;

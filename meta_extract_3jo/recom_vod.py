@@ -17,11 +17,11 @@ model = SentenceTransformer('jhgan/ko-sroberta-multitask')
 model.eval()
 
 # 영화 키워드 데이터 불러오기
-movie_keywords_df = pd.read_csv('./movieData_keyword.csv')
+movie_keywords_df = pd.read_csv('./moviedata_keywords_df.csv')
 movie_keywords_df = movie_keywords_df[["movie_seq", "movie_keywords"]]
 
 # 영화줄거리 임베딩 데이터 불러오기
-movie_content_emb_df = pd.read_csv('./movie_content_emb.csv')
+movie_content_emb_df = pd.read_csv('./moviedata_content_emb.csv')
 
 @app.route("/recom_vod", methods=['POST'])
 def recom_vod() :

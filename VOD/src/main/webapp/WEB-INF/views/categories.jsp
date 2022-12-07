@@ -60,23 +60,6 @@
                 <div class="col-lg-8">
                     <div class="product__page__content">
                         <div class="product__page__title">
-                            <!-- <div class="row">
-                                <div class="col-lg-8 col-md-8 col-sm-6">
-                                    <div class="section-title">
-                                        <h4></h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-6">
-                                    <div class="product__page__filter">
-                                        <p>Order by:</p>
-                                        <select>
-                                            <option value="">A-Z</option>
-                                            <option value="">1-10</option>
-                                            <option value="">10-50</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                         <div class="row">
                         	<c:choose>
@@ -84,7 +67,7 @@
                        		<c:forEach items="${typeList}" var="movies" varStatus="i" begin="${paging.firstRow}" end="${paging.lastRow}" step="1">
 	                            <div class="col-lg-4 col-md-6 col-sm-6">
 	                                <div class="product__item">
-	                                    <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+	                                    <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img} ">
 	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
 	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
 	                                    </div>
@@ -102,7 +85,7 @@
                             	<c:forEach items="${list}" var="movies" varStatus="i" begin="${paging.firstRow}" end="${paging.lastRow}" step="1">
 	                            <div class="col-lg-4 col-md-6 col-sm-6">
 	                                <div class="product__item">
-	                                    <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+	                                    <div class="product__item__pic set-bg" data-setbg="${imgUrl}/${movies.movie_img} ">
 	                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
 	                                        <div class="view"><i class="fa fa-star"></i> ${movies.movie_rating/2}</div>
 	                                    </div>
@@ -150,9 +133,9 @@
                             <div class="section-title">
                                 <h5>시청목록</h5>
                             </div>
-                            <c:forEach items="${history_seq}" var="movies" >
+                            <c:forEach items="${history_test}" var="movies" >
 	                      	<div class="filter__gallery">
-		                        <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.png">
+		                        <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img} ">
 		                        <div class="view"><!-- <i class="fa fa-eye"> </i> 9141--></div>
 		                        <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
 		                        </div>
