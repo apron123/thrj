@@ -45,8 +45,12 @@ public class MovieController {
 		HttpSession session = request.getSession();
 		String mb_id=(String)session.getAttribute("mb_id");
 		
-		List<Movies> history_seq = mapper.historySeq(mb_id);
-		model.addAttribute("history_seq",history_seq);
+//		List<Movies> history_seq = mapper.historySeq(mb_id);
+//		model.addAttribute("history_seq",history_seq);
+		
+		List<Movies> history_test = mapper.history_test(mb_id);
+		model.addAttribute("history_test",history_test);
+		
 		return "index";
 	}
 	
@@ -79,7 +83,18 @@ public class MovieController {
 	    HttpSession session = request.getSession();
 		String mb_id=(String)session.getAttribute("mb_id");
 		
+		List<History> mb_history_list = mapper.mb_history_list(mb_id);
+//		boolean hs_contain_mvSeq = mb_history_list.contains(movieSeq);
+
 		if(mb_id!=null && !"".contentEquals(mb_id)) {
+			for(int i=0;i<mb_history_list.size();i++) {
+				if(mb_history_list.get(i).getMovie_seq() == movieSeq) {
+					Movies vo = new Movies();
+					vo.setMovie_seq(movieSeq);
+					vo.setMb_id(mb_id);
+					mapper.delete_history(vo);
+				}
+			}
 			Movies vo =new Movies();
 			vo.setMovie_seq(movieSeq);
 			vo.setMb_id(mb_id);
@@ -126,12 +141,10 @@ public class MovieController {
 	@GetMapping("/categories.do")
 	public String categories(Model model, @ModelAttribute("paging")Paging paging, HttpServletRequest request, Movies movie) {
 		
-		int totalRowCount = mapper.getTotalRowCount(paging);
+		String movieType = request.getParameter("movie_type");
+		int totalRowCount = mapper.getTotalRowCount(movieType);
 		paging.setTotalRowCount(totalRowCount);
 		
-		String movieType = request.getParameter("movie_type");
-		int totalRowCount_category = mapper.getTotalRowCount_1(movieType);
-		paging.setTotalRowCount(totalRowCount_category);
 		paging.pageSetting();
 		
 		model.addAttribute("Paging", paging);
@@ -139,7 +152,6 @@ public class MovieController {
 		List<Movies> list = mapper.categorieList();
 		model.addAttribute("list",list);
 		
-//		String movieType = request.getParameter("movie_type");
 		List<Movies> movie_type_list = mapper.movie_typeList(movieType);
 		List<Movies> typeList = new ArrayList<Movies>();
 		
@@ -153,6 +165,9 @@ public class MovieController {
 		String mb_id=(String)session.getAttribute("mb_id");
 		List<Movies> history_seq = mapper.historySeq(mb_id);
 		model.addAttribute("history_seq",history_seq);
+		
+		List<Movies> history_test = mapper.history_test(mb_id);
+		model.addAttribute("history_test",history_test);
 		
 		return "categories";
 	}
