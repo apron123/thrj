@@ -217,7 +217,7 @@
 			</if>
 		<![CDATA[	
 		group by Hs.movie_seq,date_format(Hs.history_date, '%Y-%m-%d'),Mv.movie_title
-		order by date_format(Hs.history_date, '%Y-%m-%d') desc
+		order by date_format(Hs.history_date, '%Y-%m-%d') desc,Hs.movie_seq asc
 		limit 4
 		]]>
 	</select>
