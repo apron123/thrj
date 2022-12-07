@@ -19,3 +19,10 @@ movie_keyword_extract_and_weighting.py
 메타데이터 추천
 movie_embedding_and_recommendation.py
 ```
+
+### gitignore
+```
+https://www.toptal.com/developers/gitignore
+
+Eclipse/Python
+```
