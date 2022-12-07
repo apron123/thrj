@@ -235,5 +235,28 @@
 		 	)
 		]]>
 	</insert>
+	
+	<select id="history_test" parameterType="string" resultType="com.thrj.Entity.Movies">
+	    select m.* 
+	    from movies m, history h
+		where m.movie_seq = h.movie_seq 
+		and m.movie_seq in (select movie_seq from history 
+						<if test='mb_id !=null'>
+						 where mb_id=#{mb_id}
+						</if> 
+						 order by history_date desc)
+		order by h.history_date desc 
+		limit 4
+		
+	</select>
+	<delete id="delete_history" parameterType="com.thrj.Entity.Movies">
+	    delete from history
+	    where mb_id=#{mb_id} and movie_seq=#{movie_seq} 
+	</delete>
+	
+	<select id="mb_history_list" parameterType="string" resultType="com.thrj.Entity.History">
+	    select * from history
+	    where mb_id=#{mb_id}
+	</select>
 
 </mapper>

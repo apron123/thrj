@@ -74,9 +74,7 @@
 <!-- Js Plugins -->
 	<script>
 	$( function() {
-	 
 		showList();
-	
 	 });
 	function showList(){
 		var key = "f9a5e15b3b0e1e90e656e39bf714f0a3";
@@ -85,8 +83,6 @@
         const searchUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key="+api_key+"&language=ko-KR&region=KR";
         const base_url = "https://image.tmdb.org/t/p/w300/";
       
-        
-       
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
         	 if(xhr.readyState == 4 && xhr.status == 200){
@@ -101,10 +97,7 @@
 	 			 	var release_date = element['release_date'];
 	 			 	var output="<div class='product__item'>";
 	 			 	
-	 			 	
-	 			 	
         		 	if(element['release_date'].substring(0,4) == '2022' ){ //2022년 기준
-        		 		
         		 		var apiUrl = "http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key="+key+"&movieNm="+element['title']+"&itemPerPage=1";
         		 		
         		 		fetch(apiUrl).then(res => res.json()).then(function(res){

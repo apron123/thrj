@@ -26,4 +26,7 @@ public interface MovieMapper {
 	public List<Movies> movie_typeList(String movieType);  //카테고리별 영화 시퀀스
 	public Movies typeList(int seq);  //카테고리별 영화 리스트
 	
+	public List<Movies> history_test(String mb_id);
+	public void delete_history(Movies movies);
+	public List<History> mb_history_list(String mb_id);
 }
