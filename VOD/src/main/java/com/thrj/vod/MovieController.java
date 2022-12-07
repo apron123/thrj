@@ -45,12 +45,8 @@ public class MovieController {
 		HttpSession session = request.getSession();
 		String mb_id=(String)session.getAttribute("mb_id");
 		
-//		List<Movies> history_seq = mapper.historySeq(mb_id);
-//		model.addAttribute("history_seq",history_seq);
-		
-		List<Movies> history_test = mapper.history_test(mb_id);
-		model.addAttribute("history_test",history_test);
-		
+		List<Movies> history_seq = mapper.historySeq(mb_id);
+		model.addAttribute("history_seq",history_seq);
 		return "index";
 	}
 	
@@ -83,18 +79,7 @@ public class MovieController {
 	    HttpSession session = request.getSession();
 		String mb_id=(String)session.getAttribute("mb_id");
 		
-		List<History> mb_history_list = mapper.mb_history_list(mb_id);
-//		boolean hs_contain_mvSeq = mb_history_list.contains(movieSeq);
-
 		if(mb_id!=null && !"".contentEquals(mb_id)) {
-			for(int i=0;i<mb_history_list.size();i++) {
-				if(mb_history_list.get(i).getMovie_seq() == movieSeq) {
-					Movies vo = new Movies();
-					vo.setMovie_seq(movieSeq);
-					vo.setMb_id(mb_id);
-					mapper.delete_history(vo);
-				}
-			}
 			Movies vo =new Movies();
 			vo.setMovie_seq(movieSeq);
 			vo.setMb_id(mb_id);
