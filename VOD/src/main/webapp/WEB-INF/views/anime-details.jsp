@@ -209,7 +209,7 @@
                                 <h5>you might like...</h5>
                             </div>
                             <c:forEach items="${list_genre}" var="movies">
-                            <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img} ">
+                            <div class="product__sidebar__view__item set-bg" data-setbg="${imgUrl}/${movies.movie_img}.jpg">
                                  <h5><a href="animeDetails.do?movie_seq=${movies.movie_seq}">${movies.movie_title}</a></h5>
                             </div>
                             </c:forEach>
