@@ -102,6 +102,8 @@ public class MemberController {
 		 int cntComment=comment_mapper.CommentsUsrCnt(mb_id);
 		 int cnthistory=history_mapper.HistoryUsrCnt(mb_id);
 		 
+		 //테이블 문제때문에 삭제기능 추가..
+		 
 		 //회원 정보 삭제
 		 mapper.deleteMember(mb_id);
 		 
@@ -151,10 +153,10 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value="/saveFile.do", method=RequestMethod.POST)
+	@RequestMapping(value="/saveFile.do", method=RequestMethod.POST,produces = "application/text; charset=UTF-8")
 	@ResponseBody public String saveFile(HttpServletRequest request ) throws IOException {
 		String imgFolder ="\\resources\\memberPhoto\\";
-		String realFolder = request.getRealPath("/")+imgFolder;
+		String realFolder = request.getSession().getServletContext().getRealPath("/")+imgFolder;
 		MultipartHttpServletRequest multipartRequest =  (MultipartHttpServletRequest)request;
 		MultipartFile file = multipartRequest.getFile("imageFile"); //단일 파일 업로드
 		String filename = file.getOriginalFilename();
