@@ -98,7 +98,7 @@ VOD 줄거리에서 상위 메타데이터를 추출하고 메타데이터와 �
     <td align="center"><b>개발총괄</b><br>Python 개발<br>문서작성&발표</td>
     <td align="center"><b>UI/UX, 디자인 & 기획</b><br>상세페이지 퍼블리싱<br>화면설계 및 기획</td>
     <td align="center"><b>UI/UX, 퍼블리싱</b><br>페이지 구현<br>문서작성&기획</td>
-    <td align="center"><b>Spring 개발</b><br/><br/> API 개발<br/></td>
+    <td align="center"><b>Spring 개발</b><br/>BackEnd개발<br/> API 개발<br/></td>
     <td align="center"><b>업무지원</b><br>SystemQA<br>데이터 관리 및 전처리</td>
   </tr>
   <tr>
