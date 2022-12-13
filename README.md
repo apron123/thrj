@@ -55,7 +55,7 @@ VOD 줄거리에서 상위 메타데이터를 추출하고 메타데이터와 �
     <tr>
         <td>Web</td>
         <td>
-            <img src="https://img.shields.io/badge/Ubuntu Ubuntu-D22128?style=for-the-badge&logo=Ubuntu Tomcat&logoColor=red"/>
+            <img src="https://camo.githubusercontent.com/1814dfdb62c9a3366a9946083ac0f3ed32aad98e665b287769332252d945f2f1/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d5562756e747526636f6c6f723d453935343230266c6f676f3d5562756e7475266c6f676f436f6c6f723d464646464646266c6162656c3d"/>
         </td>
     </tr>
     <tr>
