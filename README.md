@@ -95,11 +95,11 @@ VOD 줄거리에서 상위 메타데이터를 추출하고 메타데이터와 �
     <td align="center"><strong>백종화</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>PM</b><br>Flask 서버 개발<br>메타데이터 추출<br>추천 알고리즘 구현<br>문서작성&발표</td>
-    <td align="center"><b>UI/UX, Front-end</b><br>상세페이지 제작/구현<br>별점시스템 구현<br>와이어프레임 제작</td>
-    <td align="center"><b>UI/UX, Front-end</b><br>메인페이지 제작/구현<br>페이징 구현<br>히스토리 구현</td>
-    <td align="center"><b>Back-end, Front-end</b><br>개발환경 구축<br>외부API 연결<br>회원가입/로그인 구현<br>댓글 구현</td>
-    <td align="center"><b>Back-end</b><br>테이블 구성<br>데이터 크롤링<br>데이터전처리 및 삽입/수정</td>
+    <td align="center"><b>개발총괄</b><br>Python 개발<br>문서작성&발표</td>
+    <td align="center"><b>UI/UX, 디자인</b><br>상세페이지 제작/구현<br>별점시스템 퍼블리싱<br>와이어프레임 제작</td>
+    <td align="center"><b>UI/UX, 퍼블리싱</b><br>메인페이지 제작/구현<br>페이징 구현<br>히스토리 설계</td>
+    <td align="center"><b>Spring 개발</b><br> API 개발</td>
+    <td align="center"><b>업무지원</b><br>SystemQA<br>데이터 관리 및 가공<br>테스트 설계</td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/apron123" target='_blank'>github</a></td>
