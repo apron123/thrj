@@ -40,6 +40,7 @@ VOD 줄거리에서 상위 메타데이터를 추출하고 메타데이터와 �
             <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
             <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+             <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
         </td>
     </tr>
     <tr>
@@ -52,10 +53,15 @@ VOD 줄거리에서 상위 메타데이터를 추출하고 메타데이터와 �
         </td>
     </tr>
     <tr>
+        <td>Web</td>
+        <td>
+            <img src="https://img.shields.io/badge/Ubuntu Ubuntu-D22128?style=for-the-badge&logo=Ubuntu Tomcat&logoColor=red"/>
+        </td>
+    </tr>
+    <tr>
         <td>WAS</td>
         <td>
             <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
-            <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
         </td>
     </tr>
     <tr>
