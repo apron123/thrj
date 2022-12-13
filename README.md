@@ -52,14 +52,14 @@ VOD 줄거리에서 상위 메타데이터를 추출하고 메타데이터와 �
         </td>
     </tr>
     <tr>
-        <td>서버환경</td>
+        <td>WAS</td>
         <td>
             <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
             <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
         </td>
     </tr>
     <tr>
-        <td>데이터베이스</td>
+        <td>DataBase</td>
         <td>
             <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
         </td>
